@@ -6,8 +6,7 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="direction" jdbcType="VARCHAR" property="direction" />
     <result column="classes" jdbcType="VARCHAR" property="classes" />
-    <result column="questions" jdbcType="VARCHAR" property="questions" />
-    <result column="create_tim" jdbcType="TIMESTAMP" property="createTim" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime" />
     <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
   </resultMap>
