@@ -13,5 +13,4 @@ public class Grade {
 
     private Integer duration;
 
-
 }

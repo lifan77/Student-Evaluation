@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tangcco.evaluation.dao.PaperMapper">
-  <resultMap id="BaseResultMap" type="com.tangcoo.evaluation.pojo.Paper">
-    <id column="paper_id" jdbcType="INTEGER" property="paperId" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="direction" jdbcType="VARCHAR" property="direction" />
-    <result column="classes" jdbcType="VARCHAR" property="classes" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime" />
-    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.tangcoo.evaluation.pojo.Paper">
+        <id column="paper_id" jdbcType="INTEGER" property="paperId"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="direction" jdbcType="VARCHAR" property="direction"/>
+        <result column="classes" jdbcType="VARCHAR" property="classes"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime"/>
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime"/>
+    </resultMap>
 
 </mapper>

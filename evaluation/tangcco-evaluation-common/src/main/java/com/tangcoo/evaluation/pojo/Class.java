@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.Table;
 import java.util.Date;
+
 @Data
 @Table(name = "class")
 public class Class {
@@ -22,6 +23,5 @@ public class Class {
     private Integer totalStu;
 
     private Date openTime;
-
 
 }

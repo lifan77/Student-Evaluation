@@ -14,9 +14,9 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     /**
+     * @return
      * @author:lifan
      * @deprecated :测试tk.mybatis
-     * @return
      */
     @Override
     public List<User> queryAll() {

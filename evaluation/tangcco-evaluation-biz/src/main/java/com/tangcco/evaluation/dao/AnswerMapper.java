@@ -7,7 +7,6 @@ import tk.mybatis.mapper.common.Mapper;
 /**
  * @author :lifan
  * @deprecated :answer的数据操作层
- *
  */
 @org.apache.ibatis.annotations.Mapper
 @Component

@@ -15,5 +15,4 @@ public class User {
 
     private Integer land;
 
-
 }

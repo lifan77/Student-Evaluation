@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.Table;
 import java.util.Date;
+
 @Data
 @Table(name = "question")
 public class Question {
@@ -22,6 +23,5 @@ public class Question {
     private Date updateTime;
 
     private Integer teacherType;
-
 
 }

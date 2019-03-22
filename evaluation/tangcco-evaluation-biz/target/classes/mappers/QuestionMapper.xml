@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tangcco.evaluation.dao.QuestionMapper">
-  <resultMap id="BaseResultMap" type="com.tangcoo.evaluation.pojo.Question">
-    <id column="question_id" jdbcType="INTEGER" property="questionId" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="direction" jdbcType="VARCHAR" property="direction" />
-    <result column="options" jdbcType="VARCHAR" property="options" />
-    <result column="grade_id" jdbcType="INTEGER" property="gradeId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="teacher_type" jdbcType="INTEGER" property="teacherType" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.tangcoo.evaluation.pojo.Question">
+        <id column="question_id" jdbcType="INTEGER" property="questionId"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="direction" jdbcType="VARCHAR" property="direction"/>
+        <result column="options" jdbcType="VARCHAR" property="options"/>
+        <result column="grade_id" jdbcType="INTEGER" property="gradeId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="teacher_type" jdbcType="INTEGER" property="teacherType"/>
+    </resultMap>
 
 </mapper>

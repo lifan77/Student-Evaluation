@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.Table;
 import java.util.Date;
+
 @Data
 @Table(name = "paper")
 public class Paper {
@@ -20,6 +21,5 @@ public class Paper {
     private Date beginTime;
 
     private Date endTime;
-
 
 }

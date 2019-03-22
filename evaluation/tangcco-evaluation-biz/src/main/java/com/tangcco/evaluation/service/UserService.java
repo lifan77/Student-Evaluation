@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface UserService {
     /**
+     * @return
      * @author:lifan
      * @deprecated :用户信息查询
-     * @return
      */
     List<User> queryAll();
 }

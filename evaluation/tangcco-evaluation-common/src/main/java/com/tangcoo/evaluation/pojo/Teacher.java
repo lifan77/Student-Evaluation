@@ -13,5 +13,4 @@ public class Teacher {
 
     private Integer type;
 
-
 }
