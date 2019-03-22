@@ -284,11 +284,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="371" />
-    <option name="y" value="122" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="370" />
+    <option name="y" value="121" />
     <option name="width" value="1345" />
-    <option name="height" value="769" />
+    <option name="height" value="770" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -515,7 +515,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553235755471" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553236495944" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -595,11 +595,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.test1" />
       <item itemvalue="Spring Boot.TangccoEvaluationWebApplication" />
       <item itemvalue="Spring Boot.TangccoEvaluationCommonApplication" />
       <item itemvalue="Spring Boot.TangccoEvaluationBizApplication" />
-      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.contextLoads" />
-      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.test1" />
     </list>
     <recent_temporary>
       <list>
