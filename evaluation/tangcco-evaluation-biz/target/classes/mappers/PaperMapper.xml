@@ -9,10 +9,9 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime"/>
         <result column="end_time" jdbcType="TIMESTAMP" property="endTime"/>
-<<<<<<< HEAD
+
         <result column="teacher_type" javaType="INTEGER" property="teacherType"/>
-=======
->>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
+
     </resultMap>
 
 </mapper>
