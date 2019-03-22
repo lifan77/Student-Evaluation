@@ -23,4 +23,18 @@ public class UserServiceImpl implements UserService {
         System.out.println("-------------------------------------------------------------------------");
         return userMapper.selectAll();
     }
+
+    /**
+     * @Description: 实现登录操作
+     * @Param: [user]
+     * @return: com.tangcoo.evaluation.pojo.User
+     * @Author: ShiDunKai
+     * @Date: 2019/3/22
+     */
+    @Override
+    public User login(User user) {
+        return userMapper.login(user);
+    }
+
+
 }

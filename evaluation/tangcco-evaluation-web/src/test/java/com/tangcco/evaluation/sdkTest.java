@@ -8,13 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ * @program: 史敦凯的测试类
+ * @description: ${description}
+ * @author: ShiDunKai
+ * @create: 2019-03-22 16:44
+ **/
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TangccoEvaluationWebApplicationTests {
-
-   /* @Autowired(required = true)
-    private UserService userService;*/
-
+public class sdkTest {
     /**
      * @Description: 测试登录
      * @Param: []
@@ -38,5 +40,4 @@ public class TangccoEvaluationWebApplicationTests {
             System.out.println("验证失败");
         }
     }
-
 }
