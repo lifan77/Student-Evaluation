@@ -239,8 +239,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/java/com/tangcco/evaluation/controller/PaperController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-313">
               <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+=======
+            <state relative-caret-position="176">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -251,8 +256,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/test/java/com/tangcco/evaluation/TangccoEvaluationWebApplicationTests.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="365">
               <caret line="21" column="11" selection-start-line="18" selection-start-column="6" selection-end-line="21" selection-end-column="11" />
+=======
+            <state relative-caret-position="110">
+              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
             </state>
           </provider>
         </entry>
@@ -260,8 +273,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/dao/AnswerMapper.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="58">
               <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+=======
+            <state relative-caret-position="88">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -272,8 +290,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/resources/static/css/Xq.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="320">
               <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="286">
+              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+=======
+            <state relative-caret-position="206">
+              <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
             </state>
           </provider>
         </entry>
@@ -281,8 +309,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/resources/templates/index.ftl">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="220">
               <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="132">
+              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+=======
+            <state relative-caret-position="128">
+              <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
             </state>
           </provider>
         </entry>
@@ -302,11 +340,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/java/com/tangcco/TangccoEvaluationWebApplication.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="192">
               <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="132">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
             </state>
           </provider>
         </entry>
@@ -314,8 +357,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/java/com/tangcco/evaluation/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="160">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+            <state relative-caret-position="110">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
             </state>
           </provider>
         </entry>
@@ -386,12 +437,6 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand />
@@ -399,10 +444,22 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
+<<<<<<< HEAD
     <option name="x" value="80" />
     <option name="y" value="146" />
     <option name="width" value="1255" />
     <option name="height" value="840" />
+=======
+<<<<<<< HEAD
+    <option name="x" value="370" />
+    <option name="y" value="121" />
+=======
+    <option name="x" value="371" />
+    <option name="y" value="122" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+    <option name="width" value="1345" />
+    <option name="height" value="770" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -413,6 +470,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -420,6 +478,7 @@
               <item name="evaluation" type="b2602c69:ProjectViewProjectNode" />
               <item name="evaluation" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
             <path>
               <item name="evaluation" type="b2602c69:ProjectViewProjectNode" />
               <item name="evaluation" type="462c0819:PsiDirectoryNode" />
@@ -661,11 +720,12 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="evaluation" type="462c0819:PsiDirectoryNode" />
             </path>
+=======
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -675,8 +735,17 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553243733174" />
     <property name="last_opened_file_path" value="E:/mpp—new/mpp" />
+=======
+<<<<<<< HEAD
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553236977833" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553235762120" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
@@ -762,11 +831,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.contextLoads" />
+      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.test1" />
       <item itemvalue="Spring Boot.TangccoEvaluationWebApplication" />
       <item itemvalue="Spring Boot.TangccoEvaluationCommonApplication" />
       <item itemvalue="Spring Boot.TangccoEvaluationBizApplication" />
-      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.contextLoads" />
-      <item itemvalue="JUnit.TangccoEvaluationWebApplicationTests.test1" />
     </list>
     <recent_temporary>
       <list>
@@ -788,7 +857,16 @@
       <workItem from="1553136594426" duration="205000" />
       <workItem from="1553147729314" duration="8842000" />
       <workItem from="1553215583269" duration="2811000" />
+<<<<<<< HEAD
       <workItem from="1553233431806" duration="6927000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1553233431806" duration="1378000" />
+      <workItem from="1553236438746" duration="519000" />
+=======
+      <workItem from="1553233431806" duration="1622000" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
     </task>
     <servers />
   </component>
@@ -825,11 +903,22 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="18785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="846" extended-state="6" />
     <editor active="true" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="13755000" />
+=======
+    <option name="totallyTimeSpent" value="13480000" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34651473" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -839,9 +928,14 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.32913166" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.60481584" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -852,7 +946,16 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49932975" weight="0.32913166" />
+=======
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3286119" />
+      <window_info anchor="right" id="Maven" />
+=======
+      <window_info active="true" anchor="bottom" id="Messages" order="13" visible="true" weight="0.32913166" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -867,9 +970,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-common/src/main/java/com/tangcoo/evaluation/TangccoEvaluationCommonApplication.java">
@@ -886,6 +986,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/Test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -925,6 +1026,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/dao/TeacherMapper.java">
+=======
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/ClassMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/GradeMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/QuestionMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/RoleMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/TeacherMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-common/src/main/java/com/tangcoo/evaluation/pojo/Grade.java">
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
@@ -981,6 +1090,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/AnswerService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -989,6 +1099,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/ClassService.java">
+=======
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/AnswerMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-common/src/test/java/com/tangcoo/evaluation/TangccoEvaluationCommonApplicationTests.java">
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
@@ -1002,6 +1116,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/QuestionService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -1010,6 +1125,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/RoleService.java">
+=======
+    <entry file="jar://$MAVEN_REPOSITORY$/tk/mybatis/mapper/4.0.3/mapper-4.0.3.jar!/tk/mybatis/mapper/common/Mapper.class" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/Test.java">
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
@@ -1046,6 +1165,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/impl/AnswerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
@@ -1057,6 +1177,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/impl/ClassServiceImpl.java">
+=======
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/UserMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-common/pom.xml">
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
@@ -1164,6 +1288,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/java/com/tangcco/evaluation/controller/ClassController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1172,12 +1297,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/java/com/tangcco/evaluation/controller/GradeController.java">
+=======
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/PaperMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/dao/PaperMapper.java">
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/java/com/tangcco/evaluation/controller/QuestionController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1210,22 +1340,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-313">
           <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+=======
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/dao/AnswerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/dao/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-common/src/main/java/com/tangcoo/evaluation/pojo/Paper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
+=======
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-common/src/main/java/com/tangcoo/evaluation/pojo/Answer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/resources/mappers/PaperMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1261,6 +1425,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+=======
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tangcco-evaluation-biz/src/main/java/com/tangcco/evaluation/dao/ClassMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1269,15 +1459,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/resources/static/css/Xq.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="320">
           <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="286">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+=======
+        <state relative-caret-position="128">
+          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tangcco-evaluation-web/src/main/resources/templates/index.ftl">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="220">
           <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="132">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+=======
+        <state relative-caret-position="206">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+>>>>>>> c06c1c57d5a5c66f77c7679761c4898bcd7e15a4
+>>>>>>> 1f15e1e5cfaf11974a23aaf1f41fe603328bd28e
         </state>
       </provider>
     </entry>
