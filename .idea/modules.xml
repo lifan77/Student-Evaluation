@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/evaluation/evaluation.iml" filepath="$PROJECT_DIR$/evaluation/evaluation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sanzu.iml" filepath="$PROJECT_DIR$/.idea/sanzu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/evaluation/tangcco-evaluation-biz/tangcco-evaluation-biz.iml" filepath="$PROJECT_DIR$/evaluation/tangcco-evaluation-biz/tangcco-evaluation-biz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/evaluation/tangcco-evaluation-common/tangcco-evaluation-common.iml" filepath="$PROJECT_DIR$/evaluation/tangcco-evaluation-common/tangcco-evaluation-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/evaluation/tangcco-evaluation-web/tangcco-evaluation-web.iml" filepath="$PROJECT_DIR$/evaluation/tangcco-evaluation-web/tangcco-evaluation-web.iml" />
+    </modules>
+  </component>
+</project>
