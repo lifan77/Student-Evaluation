@@ -16,6 +16,8 @@ public class Paper {
 
     private String classes;
 
+    private Integer teacherType;
+
     private Date createTime;
 
     private Date beginTime;
