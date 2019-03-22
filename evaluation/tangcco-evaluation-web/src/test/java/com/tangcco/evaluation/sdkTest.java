@@ -37,6 +37,7 @@ public class sdkTest {
         if(seng.equals(yan)){
             System.out.println("验证成功");
         }else{
+            System.out.println("陈江虹好傻");
             System.out.println("验证失败");
         }
     }
