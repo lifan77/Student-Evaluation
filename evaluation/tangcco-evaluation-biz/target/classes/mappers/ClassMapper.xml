@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tangcco.evaluation.dao.ClassMapper">
-    <resultMap id="BaseResultMap" type="com.tangcoo.evaluation.pojo.Class">
+    <resultMap id="classMap" type="com.tangcoo.evaluation.pojo.Class">
         <id column="class_id" jdbcType="INTEGER" property="classId"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
@@ -10,6 +10,50 @@
         <result column="status" jdbcType="INTEGER" property="status"/>
         <result column="total_stu" jdbcType="INTEGER" property="totalStu"/>
         <result column="open_time" jdbcType="DATE" property="openTime"/>
+        <association property="grade" resultMap="gradeMap"></association>
+        <association property="teacher" resultMap="teacherMap"></association>
     </resultMap>
+    <resultMap id="gradeMap" type="com.tangcoo.evaluation.pojo.Grade">
+        <id column="grade_id" jdbcType="INTEGER" property="gradeId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="duration" jdbcType="INTEGER" property="duration"/>
+    </resultMap>
+    <resultMap id="teacherMap" type="com.tangcoo.evaluation.pojo.Teacher">
+        <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+    </resultMap>
+    <select id="selectClassByClassGrade" resultMap="classMap">
+        SELECT *
+        FROM class AS c,teacher AS t1,teacher AS t2 ,grade AS g
+        WHERE c.teacher_id = t1.teacher_id
+        AND t2.teacher_id = c.class_teacher_id
+        AND g.grade_id=c.grade_id
+        AND c.status=0
+        <include refid="classWhere"/>
+        ORDER BY c.class_id DESC
+        LIMIT #{offset},#{pageSize}
+    </select>
 
+    <select id="getClassCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM class AS c,teacher AS t1,teacher AS t2 ,grade AS g
+        WHERE c.teacher_id = t1.teacher_id
+        AND t2.teacher_id = c.class_teacher_id
+        AND g.grade_id=c.grade_id
+        AND c.status=0
+       <include refid="classWhere"/>
+    </select>
+    <sql id="classWhere">
+        <if test="className!=null or gradeName!=null ">
+            <trim prefix="and (" prefixOverrides="and" suffix=")">
+                <if test="className!=null and className!=''">
+                    AND c.name LIKE concat('%', #{className}, '%')
+                </if>
+                <if test="gradeName!=null and gradeName!=''">
+                    AND g.name LIKE concat('%', #{gradeName}, '%')
+                </if>
+            </trim>
+        </if>
+    </sql>
 </mapper>
