@@ -16,4 +16,6 @@ public class User {
     private Integer land;
 
     private String number;
+
+    private String password;
 }
