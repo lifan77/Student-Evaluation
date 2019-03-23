@@ -37,4 +37,9 @@ public class PaperServiceImpl implements PaperService {
     public void save(Paper paper) {
         paperMapper.insert(paper);
     }
+
+    @Override
+    public List<Paper> findJson() {
+        return paperMapper.selectAll();
+    }
 }
