@@ -7,9 +7,10 @@
         <result column="class_id" jdbcType="INTEGER" property="classId"/>
         <result column="land" jdbcType="INTEGER" property="land"/>
         <result column="number" jdbcType="VARCHAR" property="number"/>
+        <result column="password" property="password" jdbcType="VARCHAR"></result>
     </resultMap>
     <select id="login" resultMap="BaseResultMap" >
-        SELECT * FROM `user` WHERE class_id=#{user.classId}  AND land=#{user.land}
+        SELECT * FROM `user` WHERE class_id=#{user.classId} AND name=#{user.name}
     </select>
 
 </mapper>

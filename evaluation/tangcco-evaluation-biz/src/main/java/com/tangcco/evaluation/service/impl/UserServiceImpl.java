@@ -1,5 +1,6 @@
 package com.tangcco.evaluation.service.impl;
 
+import com.tangcco.evaluation.dao.ClassMapper;
 import com.tangcco.evaluation.dao.UserMapper;
 import com.tangcco.evaluation.service.UserService;
 import com.tangcoo.evaluation.pojo.User;
@@ -12,6 +13,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    ClassMapper classMapper;
 
     /**
      * @return
@@ -35,6 +38,7 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         return userMapper.login(user);
     }
+
 
 
 }
