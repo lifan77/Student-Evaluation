@@ -101,7 +101,30 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="网站设置.html" target="myFrame">测评成绩管理</a>
+                            <a href="网站设置.html" target="myFrame">新增测评</a>
+                        </dd>
+                        <!-- <dd data-name="console">
+                          <a href="邮件SMTP设置.html" target="myFrame">邮件SMTP设置</a>
+                        </dd>
+                        <dd data-name="console">
+                          <a href="短信设置.html" target="myFrame">短信设置</a>
+                        </dd>
+                        <dd data-name="console">
+                          <a href="管理员管理.html" target="myFrame">管理员管理</a>
+                        </dd>
+                        <dd data-name="console">
+                          <a href="意见反馈列表.html" target="myFrame">意见反馈列表</a>
+                        </dd> -->
+                    </dl>
+                </li>
+                <li data-name="component" class="layui-nav-item">
+                    <a href="javascript:;" lay-tips="设置" lay-direction="2">
+                        <i class="layui-icon layui-icon-set"></i>
+                        <cite>测评成绩管理</cite>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd data-name="console">
+                            <a href="网站设置.html" target="myFrame">学生测评列表</a>
                         </dd>
                         <!-- <dd data-name="console">
                           <a href="邮件SMTP设置.html" target="myFrame">邮件SMTP设置</a>

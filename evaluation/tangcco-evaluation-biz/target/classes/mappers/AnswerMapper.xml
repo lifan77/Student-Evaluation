@@ -12,7 +12,6 @@
         <result column="class_id" jdbcType="INTEGER" property="classId"/>
         <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
         <result column="paper_id" jdbcType="INTEGER" property="paperId"/>
-        <!--<result column="course" jdbcType="VARCHAR" property="course"/>-->
     </resultMap>
 
 </mapper>

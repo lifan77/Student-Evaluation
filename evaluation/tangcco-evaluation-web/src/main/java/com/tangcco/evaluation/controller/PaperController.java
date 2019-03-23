@@ -6,30 +6,41 @@ import com.tangcoo.evaluation.dto.Result;
 import com.tangcoo.evaluation.pojo.Paper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 /**
  * CreateDate: 2019/3/21 19:17
  */
-@RequestMapping("paper")
+@RequestMapping("/paper")
 @Controller
 public class PaperController {
 
     @Autowired
     private PaperService paperService;
 
-    @ResponseBody
-    @GetMapping("papers")
-    public PageResult<Paper> findAllByExample(Paper paper, Integer page, Integer size) {
-        return paperService.findAllByExample(paper, page, size);
+    @GetMapping("/papers")
+    public String findAllByExample(Model model, Paper paper, Integer page, Integer size) {
+        PageResult<Paper> papers = paperService.findAllByExample(paper, page, size);
+        model.addAttribute("papers",papers.getItems());
+        model.addAttribute("total",papers.getTotal());
+        model.addAttribute("totalPage",papers.getTotalPage());
+        return "papers";
     }
 
-    @PostMapping("save")
+    @GetMapping("/savePage")
+    public  String savePage(Model model){
+       // model.addAttribute("",);
+        return "add_paper";
+    }
+
+    @ResponseBody
+    @PostMapping("/save")
     public Result save(Paper paper) {
         try {
+            paper.setCreateTime(new Date());
             paperService.save(paper);
             return new Result(true, "添加成功");
         } catch (Exception e) {
@@ -37,4 +48,6 @@ public class PaperController {
             return new Result(false, "添加失败");
         }
     }
+
+
 }
