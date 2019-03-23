@@ -30,5 +30,4 @@ public class Answer {
 
     private Integer paperId;
 
-    private String course;
 }

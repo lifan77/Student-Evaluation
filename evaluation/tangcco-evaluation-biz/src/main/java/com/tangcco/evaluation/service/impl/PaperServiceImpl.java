@@ -25,8 +25,9 @@ public class PaperServiceImpl implements PaperService {
     public PageResult<Paper> findAllByExample(Paper paper, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(Paper.class);
+        example.setOrderByClause("create_time desc");
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("paperId",1);
+        //criteria.andEqualTo("paperId",1);
         List<Paper> papers = paperMapper.selectByExample(example);
         PageInfo<Paper> pageInfo=new PageInfo<>(papers) ;
         return new PageResult<Paper>(pageInfo.getSize(), pageInfo.getPages(), pageInfo.getList());

@@ -1,6 +1,7 @@
 package com.tangcoo.evaluation.pojo;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Table;
 import java.util.Date;
@@ -19,9 +20,9 @@ public class Paper {
     private Integer teacherType;
 
     private Date createTime;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date beginTime;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date endTime;
 
 }
