@@ -24,4 +24,5 @@ public class Class {
 
     private Date openTime;
 
+    private Grade grade;
 }
