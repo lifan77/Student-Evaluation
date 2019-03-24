@@ -23,4 +23,9 @@ public class AnswerServiceImpl implements AnswerService {
     public List<Answer> queryAnswerId() {
         return answerMapper.selectAll();
     }
+
+    @Override
+    public Integer addAnswer(Answer answer) {
+        return answerMapper.insert(answer);
+    }
 }

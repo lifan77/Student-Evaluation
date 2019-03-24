@@ -38,6 +38,13 @@ public class PaperServiceImpl implements PaperService {
         paperMapper.insert(paper);
     }
 
+    /**
+    * @Description: 解析json
+    * @Param: []
+    * @return: java.util.List<com.tangcoo.evaluation.pojo.Paper>
+    * @Author: ShiDunKai
+    * @Date: 2019/3/24
+    */
     @Override
     public List<Paper> findJson() {
         return paperMapper.selectAll();

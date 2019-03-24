@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tangcco.evaluation.service.*;
+import com.tangcoo.evaluation.pojo.Answer;
+import com.tangcoo.evaluation.pojo.Class;
 import com.tangcoo.evaluation.pojo.Question;
 import com.tangcoo.evaluation.pojo.User;
 import org.junit.Test;
@@ -12,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @program: 史敦凯的测试类
@@ -99,6 +98,9 @@ public class sdkTest {
 
     @Test
     public void testClassAll(){
+        Class c=new Class();
+        c.setClassId(1);
+        System.out.println(classService.select(c));
        /* System.out.println(classService.select().size());
         System.out.println(classService.select().get(0));
         System.out.println(classService.select().get(0).getName());*/
@@ -117,15 +119,21 @@ public class sdkTest {
     }
     @Test
     public void findJson() {
+        //{"teacherName":"crystall","teacherAge":27,"course":{"courseName":"english","code":1270},"students":[{"studentName":"lily","studentAge":12},{"studentName":"lucy","studentAge":15}]}"
         //System.out.println(paperService.findJson());
         /*List<Object> json=new ArrayList<>();*/
         // for (int i = 0; i <paperService.findJson().size() ; i++) {
         //System.out.println(paperService.findJson().get(i).getClasses());
+
+        //JSONArray jsonArray=jsonObject.getJSONArray(jsonObject);
         Map<String,String> map=new HashMap<>();
         for (int i = 0; i < paperService.findJson().size(); i++) {
-            String jsonArray = paperService.findJson().get(i).getClasses();//获取到两个json的String
+            JSONObject jsonObject=JSONObject.parseObject(paperService.findJson().get(i).getClasses());
+            JSONArray list=jsonObject.getJSONArray("classes");
+
+            /*String jsonArray = paperService.findJson().get(i).getClasses();//获取到两个json的String
             JSONArray list = JSON.parseArray(jsonArray);//String转成JSONArray
-            System.out.println(list.size());
+            System.out.println(list.size());*/
 
             for (int j = 0; j < list.size(); j++) {
                 // 遍历 jsonarray 数组，把每一个对象转成 json 对象
@@ -136,8 +144,23 @@ public class sdkTest {
                 //System.out.println(job.get("name") + "=");
             }
 
+            //System.out.println(jsonObject);
         }
         System.out.println(map);
 
+    }
+    @Test
+    public void submitExam1(){
+        Answer answer=new Answer();
+        answer.setNickname("小混蛋");
+        answer.setDetail("[{'id':1,'wenti':'这是第一题的内容','daan':5},{'id':2,'wenti':'这是第二题的内容','daan':4},{'id':3,'wenti':'这是第三题的内容','daan':5}]");
+        answer.setTotalScore(12);
+        answer.setOpinion("啦啦啦啦");
+        answer.setStatus(0);
+        answer.setTeacherId(1);
+        answer.setClassId(1);
+        answer.setCreateTime(new Date());
+        answer.setPaperId(1);
+        System.out.println(answerService.addAnswer(answer));
     }
 }

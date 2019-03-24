@@ -13,7 +13,7 @@ public interface ClassService {
      * @Author: ShiDunKai
      * @Date: 2019/3/22
      */
-    List<Class> select();
+    List<Class> select(Class c);
 
     /**
      * @author:lifan

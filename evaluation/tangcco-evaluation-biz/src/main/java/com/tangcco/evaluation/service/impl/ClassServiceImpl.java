@@ -20,16 +20,18 @@ public class ClassServiceImpl implements ClassService {
     * @return: java.util.List<com.tangcoo.evaluation.pojo.Class> 
     * @Author: ShiDunKai 
     * @Date: 2019/3/23 
-    */ 
+    */
     @Override
-    public List<Class> select() {
-        return classMapper.selectAll();
+    public List<Class> select(Class c) {
+        return classMapper.select(c);
     }
 
     @Override
     public Integer getClassCount(String className, String gradeName) {
         return classMapper.getClassCount(className,gradeName);
     }
+
+
 
     @Override
     public PageDto<Class> selectClassByClassGrade(Integer pageNo, Integer pageSize, String className, String gradeName) {

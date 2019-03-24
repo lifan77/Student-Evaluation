@@ -121,7 +121,11 @@
   <#--<#list map?keys as key>
     <option value="${key}">${map[key]}</option>
   </#list>-->
-  <form method="post" action="#">
+  <form class="chenjanghong" method="post" action="submitExam">
+    <input type="hidden" id="debug" name="detail">
+    <input type="hidden" id="score" name="score">
+    <input type="hidden" id="option" name="option">
+
     <!-- Radio Button Module -->
     <#list map?keys as key>
       <#--<option value="${key}">${map[key]}</option>-->
@@ -132,159 +136,28 @@
                     <div class="rb-spot">
                     <span class="rb-txt">${map[key][yy]}</span>
                   </div>
-                </div><span >${yy}</span></br></br>
+                </div><span class="wenti">${yy}</span></br></br>
             </#list>
       </div>
     </#list>
-    <#-- <div class="rb-tab" data-value="2">
-            <div class="rb-spot">
-              <span class="rb-txt">2</span>
-            </div>
-          </div>
-          <div class="rb-tab" data-value="3">
-            <div class="rb-spot">
-              <span class="rb-txt">3</span>
-            </div>
-          </div>
-          <div class="rb-tab" data-value="4">
-            <div class="rb-spot">
-              <span class="rb-txt">4</span>
-            </div>
-          </div>
-          <div class="rb-tab" data-value="5">
-            <div class="rb-spot">
-              <span class="rb-txt">5</span>
-            </div>
-          </div>-->
+
+    <div class="button-box">
+      <input type="text" id="nickname" name="nickname" placeholder="请输入你的匿名昵称">
+    </div>
+
   </form>
-  <!--&lt;!&ndash; Radio Button Module &ndash;&gt;
-  <p>2. On a scale of 1 to 5 how would you rate the universe?</p>
-  <div id="rb-2" class="rb">
-    <div class="rb-tab" data-value="1">
-      <div class="rb-spot">
-        <span class="rb-txt">1</span>
-      </div>
-    </div><div class="rb-tab rb-tab-active" data-value="2">
-      <div class="rb-spot">
-        <span class="rb-txt">2</span>
-      </div>
-    </div><div class="rb-tab" data-value="3">
-      <div class="rb-spot">
-        <span class="rb-txt">3</span>
-      </div>
-    </div><div class="rb-tab" data-value="4">
-      <div class="rb-spot">
-        <span class="rb-txt">4</span>
-      </div>
-    </div><div class="rb-tab" data-value="5">
-      <div class="rb-spot">
-        <span class="rb-txt">5</span>
-      </div>
-    </div>
-  </div>
-
-  &lt;!&ndash; Radio Button Module &ndash;&gt;
-  <p>3. On a scale of 1 to 5 how much do you like stalactites?</p>
-  <div id="rb-3" class="rb">
-    <div class="rb-tab" data-value="1">
-      <div class="rb-spot">
-        <span class="rb-txt">1</span>
-      </div>
-    </div><div class="rb-tab" data-value="2">
-      <div class="rb-spot">
-        <span class="rb-txt">2</span>
-      </div>
-    </div><div class="rb-tab rb-tab-active" data-value="3">
-      <div class="rb-spot">
-        <span class="rb-txt">3</span>
-      </div>
-    </div><div class="rb-tab" data-value="4">
-      <div class="rb-spot">
-        <span class="rb-txt">4</span>
-      </div>
-    </div><div class="rb-tab" data-value="5">
-      <div class="rb-spot">
-        <span class="rb-txt">5</span>
-      </div>
-    </div>
-  </div>
-
-  &lt;!&ndash; Radio Button Module &ndash;&gt;
-  <p>4. On a scale of 1 to 5 what is your favorite color in the alphabet?</p>
-  <div id="rb-4" class="rb">
-    <div class="rb-tab" data-value="1">
-      <div class="rb-spot">
-        <span class="rb-txt">1</span>
-      </div>
-    </div><div class="rb-tab" data-value="2">
-      <div class="rb-spot">
-        <span class="rb-txt">2</span>
-      </div>
-    </div><div class="rb-tab" data-value="3">
-      <div class="rb-spot">
-        <span class="rb-txt">3</span>
-      </div>
-    </div><div class="rb-tab rb-tab-active" data-value="4">
-      <div class="rb-spot">
-        <span class="rb-txt">4</span>
-      </div>
-    </div><div class="rb-tab" data-value="5">
-      <div class="rb-spot">
-        <span class="rb-txt">5</span>
-      </div>
-    </div>
-  </div>
-
-  &lt;!&ndash; Radio Button Module &ndash;&gt;
-  <p>5. On a scale of one to shrimp, how random are you?</p>
-  <div id="rb-5" class="rb">
-    <div class="rb-tab" data-value="4">
-      <div class="rb-spot">
-        <span class="rb-txt">4</span>
-      </div>
-    </div><div class="rb-tab" data-value="2">
-      <div class="rb-spot">
-        <span class="rb-txt">2</span>
-      </div>
-    </div><div class="rb-tab" data-value="5">
-      <div class="rb-spot">
-        <span class="rb-txt">5</span>
-      </div>
-    </div><div class="rb-tab" data-value="1">
-      <div class="rb-spot">
-        <span class="rb-txt">1</span>
-      </div>
-    </div><div class="rb-tab rb-tab-active" data-value="3">
-      <div class="rb-spot">
-        <span class="rb-txt">3</span>
-      </div>
-    </div>
-  </div>-->
-
   <!-- Button -->
-  <div class="button-box">
-    <button class="button trigger">Submit!</button>
-  </div>
+    <div class="button-box">
+      <button class="button trigger">Submit!</button>
+    </div>
+
+
 
 </div>
 
 
 <script>
-    /*
-    ===============================================================
 
-    Hi! Welcome to my little playground!
-
-    My name is Tobias Bogliolo. 'Open source' by default and always 'responsive',
-    I'm a publicist, visual designer and frontend developer based in Barcelona.
-
-    Here you will find some of my personal experiments. Sometimes usefull,
-    sometimes simply for fun. You are free to use them for whatever you want
-    but I would appreciate an attribution from my work. I hope you enjoy it.
-
-    ===============================================================
-    */
-    //Global:
     var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
 
     //switcher function:
@@ -302,22 +175,41 @@
         for (i=1; i<=$(".rb").length; i++) {
             var rb = "rb" + i;
             var rbValue = parseInt($("#rb-"+i).find(".rb-tab-active").attr("data-value"));
+            var wenti=$(".wenti").html();
             console.log($("#rb-"+i).find(".rb-tab-active").children("div").children("span").text())
             //var rbValue=$("#rb-"+i).find(".rb-tab-active").attr("data-value");
             //Bidimensional array push:
-            survey.push([i, rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
+            survey.push([i,wenti,rbValue]); //Bidimensional array: [ [1,3], [2,4] ]
         };
-        //Debug:
+       /* //Debug:*/
         debug();
     });
-
     //Debug:
     function debug(){
-        var debug = "";
+        var debug1 = "";
+        var score=0;
+        var nickname=$("#nickname").val();
+        var option="";
         for (i=0; i<survey.length; i++) {
-            debug += "No " + survey[i][0] + " = " + survey[i][1] + "\n";
+            debug1 += "{'id':" + survey[i][0] + " ,'wenti':" + "'"+survey[i][1]+"'" + ",'daan':"+survey[i][2]+"},";
+            console.log("{'id':" + survey[i][0] + " ,'wenti':" + survey[i][1] + ",'daan':"+survey[i][2]+"},")
+            score+=survey[i][2];
+            //[{'id':1,'wenti':'这是第一题的内容','daan':5},{'id':2,'wenti':'这是第二题的内容','daan':5},{'id':3,'wenti':'这是第三题的内容','daan':5}]
         };
-        alert(survey);
-    };</script>
+
+        //$.post('url',{参数1:'值1',参数2:'值2'},回调函数)
+        //String nickname,String detail,Integer score,String option
+    //{nickname:nickname,detail:debug,score:score,option:option}
+
+        option=prompt("请输入你对这位老师的意见：");
+        $("#debug").val(debug1);
+        $("#score").val(score);
+        $("#option").val(option);
+        alert($("#option").val(option).val());
+        $(".chenjanghong").submit();
+        //location.href="submitExam?nickname="+nickname+"&detail="+debug+"&score="+score+"&option="+option;
+    };
+
+    </script>
 </body>
 </html>

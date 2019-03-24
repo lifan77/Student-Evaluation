@@ -121,7 +121,7 @@
   <#--<#list map?keys as key>
     <option value="${key}">${map[key]}</option>
   </#list>-->
-  <form class="chenjanghong" method="post" action="submitExam">
+  <form class="chenjanghong" method="post" action="submitExam2">
     <input type="hidden" id="debug" name="detail">
     <input type="hidden" id="score" name="score">
     <input type="hidden" id="option" name="option">
