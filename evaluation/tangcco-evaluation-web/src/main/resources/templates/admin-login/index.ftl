@@ -40,6 +40,15 @@
 </div>
 <script src='/admin-login/js/jquery.min.js'></script>
 <script src="/admin-login/js/index.js"></script>
+<script src="/layui/layui.all.js"></script>
+<script>
+    $(function(){
+        var msg="${msg?default('')}";
+        if(msg.length!=0){
+            layer.msg(msg);
+        }
+    })
+</script>
 </body>
 
 </html>

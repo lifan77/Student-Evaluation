@@ -155,8 +155,19 @@
 
 </div>
 
-
+<script src="/layui/layui.all.js"></script>
+<script language="javascript">
+    //防止页面后退
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+    });
+</script>
 <script>
+    var msg="${msg?default('')}";
+    if(msg.length!=0){
+        layer.msg(msg);
+    }
 
     var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
 

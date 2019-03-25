@@ -4,15 +4,14 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tangcco.evaluation.service.*;
-import com.tangcoo.evaluation.pojo.Answer;
+import com.tangcoo.evaluation.pojo.*;
 import com.tangcoo.evaluation.pojo.Class;
-import com.tangcoo.evaluation.pojo.Question;
-import com.tangcoo.evaluation.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.*;
 
@@ -33,7 +32,8 @@ public class UserController {
     private String option;
     //昵称
     private String nickname;
-
+    //时间
+    private Date date=new Date();
 
     @Autowired
     private UserService userService;
@@ -71,7 +71,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "studentLogin",method = RequestMethod.POST)
-    public String  loginStudent(String password,String name,Integer classId){
+    public String  loginStudent(String password, String name, Integer classId, RedirectAttributes redirectAttributes,Model model){
         User user=new User();
         user.setClassId(classId);
         this.classId=classId;   //33333333333333333333333333333333333333333333333333333333333333333333333333
@@ -85,23 +85,32 @@ public class UserController {
         user.setName(name);
         String yan=password;
         User user1=userService.login(user);
-        System.out.println(user1);
-        String seng=user1.getNumber().substring(12,18);//获取后六位
-        Integer land=user1.getLand();//获取登录状态
-        //登录状态判断
-        if(land==1){
-            System.out.println("允许登录");
-            if(seng.equals(yan)){
-                System.out.println("验证成功");
-                return "forward:/student/exam1";
+        if(user1!=null){
+            System.out.println(user1);
+            String seng=user1.getNumber().substring(12,18);//获取后六位
+            Integer land=user1.getLand();//获取登录状态
+            //登录状态判断
+            if(land==1){
+                System.out.println("允许登录");
+                if(seng.equals(yan)){
+                    System.out.println("验证成功");
+                    model.addAttribute("msg","身份验证成功，允许登录。");
+                    return "forward:/student/exam1";
+                }else{
+                    System.out.println("验证失败");
+                    redirectAttributes.addFlashAttribute("msg","身份验证失败，请检查登录信息。");
+                    return "redirect:/student";
+                }
             }else{
-                System.out.println("验证失败");
-                return "redirect:/student/studentLogin";
+                System.out.println("不允许登录");
+                redirectAttributes.addFlashAttribute("msg","身份验证失败，请检查登录信息。");
+                return "redirect:/student";
             }
         }else{
-            System.out.println("不允许登录");
-            return "redirect:/student/studentLogin";
+            redirectAttributes.addFlashAttribute("msg","身份验证失败，请检查登录信息。");
+            return "redirect:/student";
         }
+
     }
     @RequestMapping("exam1")
     public String exam(Model model) {  //Integer gradeId,Integer teacherType 这两个参数一定要加的
@@ -182,7 +191,7 @@ public class UserController {
     }
 
     @RequestMapping("submitExam")
-    public String submitExam1(String nickname,String detail,Integer score,String option){
+    public String submitExam1(String nickname, String detail, Integer score, String option, RedirectAttributes redirectAttributes, Model model){
         Answer answer=new Answer();
         answer.setNickname(nickname);
         System.out.println(detail);
@@ -193,14 +202,32 @@ public class UserController {
         answer.setStatus(0);
         answer.setTeacherId(this.teacherId);
         answer.setClassId(this.classId);
-        answer.setPaperId(1);
-        answer.setCreateTime(new Date());
-        answerService.addAnswer(answer);
-        System.out.println(nickname+""+detail+""+score+""+option);
-        return "forward:/student/exam2";
+
+
+
+        Integer garderId=this.gradeId;
+        List<Paper> p=paperService.findJson();
+        for (int i = 0; i <p.size() ; i++) {
+            if(date.getTime()<p.get(i).getEndTime().getTime()){
+                this.paperId=p.get(i).getPaperId();
+            }
+        }
+
+        answer.setPaperId(this.paperId);    //////////////////////////////////////////////////这里是paperid
+        answer.setCreateTime(date);
+        Integer j=answerService.addAnswer(answer);
+        if (j==1){
+            model.addAttribute("msg","提交成功，进入下一个测评问卷。");
+            System.out.println(nickname+""+detail+""+score+""+option);
+            return "forward:/student/exam2";
+        }else{
+            redirectAttributes.addFlashAttribute("msg","提交失败，请联系管理员进行维护。");
+            System.out.println(nickname+""+detail+""+score+""+option);
+            return "redirect:/student";
+        }
     }
     @RequestMapping("submitExam2")
-    public String submitExam2(String nickname,String detail,Integer score,String option){
+    public String submitExam2(String nickname,String detail,Integer score,String option,RedirectAttributes redirectAttributes,Model model){
         Answer answer=new Answer();
         answer.setNickname(nickname);
         detail=detail.substring(0,detail.length() - 1);
@@ -208,11 +235,30 @@ public class UserController {
         answer.setTotalScore(score);
         answer.setOpinion(option);
         answer.setStatus(0);
-        answer.setCreateTime(new Date());
+
+
+
+        Integer garderId=this.gradeId;
+        List<Paper> p=paperService.findJson();
+        for (int i = 0; i <p.size() ; i++) {
+            if(date.getTime()<p.get(i).getEndTime().getTime()){
+                this.paperId=p.get(i).getPaperId();
+            }
+        }
+        answer.setPaperId(paperId);
+        answer.setCreateTime(this.date);
         answer.setTeacherId(this.classTeacherId);
         answer.setClassId(this.classId);
-        answerService.addAnswer(answer);
-        return "/admin-login/index";
+        Integer j=answerService.addAnswer(answer);
+        if (j==1){
+            model.addAttribute("msg","提交成功，完成测评。");
+            System.out.println(nickname+""+detail+""+score+""+option);
+            return "/admin-login/index";
+        }else{
+            redirectAttributes.addFlashAttribute("msg","提交失败，请联系管理员进行维护。");
+            System.out.println(nickname+""+detail+""+score+""+option);
+            return "redirect:/student";
+        }
     }
 
 

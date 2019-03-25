@@ -10,8 +10,6 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
-import java.util.List;
-
 @Service
 public class ClassServiceImpl implements ClassService {
     @Autowired
@@ -40,8 +38,6 @@ public class ClassServiceImpl implements ClassService {
     public Integer getClassCount(String className, String gradeName) {
         return classMapper.getClassCount(className,gradeName);
     }
-
-
 
     @Override
     public PageDto<Class> selectClassByClassGrade(Integer pageNo, Integer pageSize, String className, String gradeName) {

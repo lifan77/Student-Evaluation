@@ -4,10 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tangcco.evaluation.service.*;
-import com.tangcoo.evaluation.pojo.Answer;
+import com.tangcoo.evaluation.pojo.*;
 import com.tangcoo.evaluation.pojo.Class;
-import com.tangcoo.evaluation.pojo.Question;
-import com.tangcoo.evaluation.pojo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -162,5 +160,17 @@ public class sdkTest {
         answer.setCreateTime(new Date());
         answer.setPaperId(1);
         System.out.println(answerService.addAnswer(answer));
+    }
+
+    @Test
+    public void testQuery(){
+        Date date=new Date();
+        Integer garderId=0;
+        List<Paper> p=paperService.findJson();
+        for (int i = 0; i <p.size() ; i++) {
+            if(date.getTime()<p.get(i).getEndTime().getTime()){
+                System.out.println(p.get(i).getPaperId());
+            }
+        }
     }
 }
