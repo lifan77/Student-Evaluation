@@ -155,7 +155,7 @@
 
 </div>
 
-
+<script src="/layui/layui.all.js"></script>
 <script>
 
     var survey = []; //Bidimensional array: [ [1,3], [2,4] ]
@@ -183,6 +183,7 @@
         };
        /* //Debug:*/
         debug();
+
     });
     //Debug:
     function debug(){
@@ -201,14 +202,31 @@
         //String nickname,String detail,Integer score,String option
     //{nickname:nickname,detail:debug,score:score,option:option}
 
-        option=prompt("请输入你对这位老师的意见：");
-        $("#debug").val(debug1);
-        $("#score").val(score);
-        $("#option").val(option);
-        alert($("#option").val(option).val());
-        $(".chenjanghong").submit();
+        //option=prompt("请输入你对这位老师的意见：");
+        layer.prompt({
+            formType: 2,
+            value: '请输入你对这位老师的建议或意见：',
+            title: '意见反馈',
+            area: ['400px', '350px'] //自定义文本域宽高
+        }, function(value, index, elem) {
+            option=value;
+            $("#debug").val(debug1);
+            $("#score").val(score);
+            $("#option").val(option);
+            //alert($("#option").val(option).val());
+
+           /* $(".chenjanghong").submit();*/
+            layer.close(index);
+            //layer.submit($(".chenjanghong"))
+            submit()
+        });
+
         //location.href="submitExam?nickname="+nickname+"&detail="+debug+"&score="+score+"&option="+option;
     };
+
+    function submit() {
+        $(".chenjanghong").submit();
+    }
 
     </script>
 </body>
