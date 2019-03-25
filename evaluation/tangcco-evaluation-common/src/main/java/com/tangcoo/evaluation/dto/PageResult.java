@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class PageResult<T> {
-    private int total;// 总条数
+    private long total;// 总条数
     private int totalPage;// 总页数
     private List<T> items;// 当前页数据
 

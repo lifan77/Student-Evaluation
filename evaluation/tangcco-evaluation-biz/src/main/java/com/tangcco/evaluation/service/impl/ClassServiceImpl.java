@@ -6,6 +6,9 @@ import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.Class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
+
+import java.util.List;
 
 import java.util.List;
 
@@ -13,7 +16,14 @@ import java.util.List;
 public class ClassServiceImpl implements ClassService {
     @Autowired
     private ClassMapper classMapper;
-    
+    @Override
+    public List<Class> findAllByExample(Integer gradeId) {
+        Example example=new Example(Class.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("gradeId",gradeId);
+        return classMapper.selectByExample(example);
+    }
+
     /** 
     * @Description: 用来登录使用的 
     * @Param: [] 

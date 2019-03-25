@@ -6,6 +6,7 @@ import com.tangcoo.evaluation.pojo.Class;
 import java.util.List;
 
 public interface ClassService {
+    List<Class> findAllByExample(Integer gradeId);
     /**
      * @Description: 查询答卷用
      * @Param:
