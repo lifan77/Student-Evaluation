@@ -20,4 +20,5 @@ public class ClassController {
     public List<Class> clesses(Integer gradeId){
         return classService.findAllByExample(gradeId);
     }
+
 }

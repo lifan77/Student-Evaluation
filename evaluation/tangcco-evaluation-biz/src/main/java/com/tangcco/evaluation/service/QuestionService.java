@@ -14,4 +14,12 @@ public interface QuestionService {
     int update(Question question);
 
     Question findOne(Question question);
+    /**
+    * @Description:  展示问题用
+    * @Param: []
+    * @return: java.util.List<com.tangcoo.evaluation.pojo.Question>
+    * @Author: ShiDunKai
+    * @Date: 2019/3/23
+    */
+    List<Question> selectQuestion(Question t);
 }

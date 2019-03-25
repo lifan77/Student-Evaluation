@@ -3,6 +3,7 @@ package com.tangcoo.evaluation.pojo;
 import lombok.Data;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
 
 @Data
@@ -23,5 +24,8 @@ public class Class {
     private Integer totalStu;
 
     private Date openTime;
-
+    @Transient
+    private Grade grade;
+    @Transient
+    private Teacher teacher;
 }

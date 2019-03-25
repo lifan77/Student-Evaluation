@@ -9,6 +9,8 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
+import java.util.List;
+
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
@@ -27,21 +29,21 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public int update(Question question) {
-        Example example=new Example(Question.class);
+        Example example = new Example(Question.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("questionId",question.getQuestionId());
-        return questionMapper.updateByExample(question,example);
+        criteria.andEqualTo("questionId", question.getQuestionId());
+        return questionMapper.updateByExample(question, example);
     }
 
     @Override
     public List<Question> findAllByExample(Integer gradeId, Integer teacherType) {
-        Example example=new Example(Question.class);
+        Example example = new Example(Question.class);
         Example.Criteria criteria = example.createCriteria();
-        if(gradeId != null && gradeId != -1){
-            criteria.andEqualTo("gradeId",gradeId);
+        if (gradeId != null && gradeId != -1) {
+            criteria.andEqualTo("gradeId", gradeId);
         }
-        if(teacherType != null && teacherType != -1){
-            criteria.andEqualTo("teacherType",teacherType);
+        if (teacherType != null && teacherType != -1) {
+            criteria.andEqualTo("teacherType", teacherType);
         }
         return questionMapper.selectByExample(example);
     }
@@ -49,5 +51,12 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public int delete(Question question) {
         return questionMapper.delete(question);
+
+
+    }
+
+    @Override
+    public List<Question> selectQuestion(Question t) {
+        return questionMapper.select(t);
     }
 }
