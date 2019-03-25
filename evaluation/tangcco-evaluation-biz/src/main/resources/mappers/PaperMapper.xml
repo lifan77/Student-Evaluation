@@ -5,6 +5,7 @@
         <id column="paper_id" jdbcType="INTEGER" property="paperId"/>
         <result column="title" jdbcType="VARCHAR" property="title"/>
         <result column="direction" jdbcType="VARCHAR" property="direction"/>
+        <result column="grade_id" jdbcType="INTEGER" property="gradeId"/>
         <result column="classes" jdbcType="VARCHAR" property="classes"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime"/>

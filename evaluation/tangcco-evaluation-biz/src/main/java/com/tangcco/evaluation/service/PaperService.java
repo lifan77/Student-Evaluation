@@ -12,12 +12,12 @@ public interface PaperService {
      * @deprecated 查询历史评测
      * @return
      */
-    PageResult<Paper> findAllByExample(Paper paper,Integer pageNum,Integer pageSize);
+    PageResult<Paper> findAllByExample(String date1,String date2, Integer pageNum, Integer pageSize);
 
     /***
      * @author:liuxuan
      * @deprecated 发布评测
      * @return
      */
-    void save(Paper paper);
+    int save(Paper paper);
 }
