@@ -173,4 +173,8 @@ public class sdkTest {
             }
         }
     }
+    @Test
+    public void testUpdate(){
+        System.out.println(userService.userLand(1));
+    }
 }

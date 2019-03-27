@@ -18,6 +18,7 @@ import java.util.*;
 @RequestMapping("/student")
 @Controller
 public class UserController {
+    private Integer userId;
     //先查出来paper表的状态，然后查出来班级
     private Integer paperId;
     private Date endTime;
@@ -85,6 +86,7 @@ public class UserController {
         user.setName(name);
         String yan=password;
         User user1=userService.login(user);
+        this.userId=user1.getUserId();/////////////////////////////////////////////////////////////////////////获取用户id
         if(user1!=null){
             System.out.println(user1);
             String seng=user1.getNumber().substring(12,18);//获取后六位
@@ -155,7 +157,7 @@ public class UserController {
         System.out.println("进来没有exam2");
         Question t = new Question();
         t.setGradeId(this.gradeId);
-        t.setTeacherType(2);
+        t.setTeacherType(0);
         List<Question> q = questionService.selectQuestion(t);//根据年级，教员开始分配题目
         //[Question(questionId=2, title=测试2, direction=很棒, options=[{"detail":"这是第一个选项","score":"1"},{"detail":"这是第二个选项","score":"2"},{"detail":"这是第三个选项","score":"3"}], gradeId=1, createTime=Sat Mar 23 14:32:31 CST 2019, updateTime=Sat Mar 23 19:32:36 CST 2019, teacherType=2)]
         /*List<String> key=new ArrayList<>();
@@ -212,7 +214,6 @@ public class UserController {
                 this.paperId=p.get(i).getPaperId();
             }
         }
-
         answer.setPaperId(this.paperId);    //////////////////////////////////////////////////这里是paperid
         answer.setCreateTime(date);
         Integer j=answerService.addAnswer(answer);
@@ -253,14 +254,13 @@ public class UserController {
         if (j==1){
             model.addAttribute("msg","提交成功，完成测评。");
             System.out.println(nickname+""+detail+""+score+""+option);
-            return "/admin-login/index";
+            userService.userLand(this.userId);
+            return "forward:/student";
         }else{
             redirectAttributes.addFlashAttribute("msg","提交失败，请联系管理员进行维护。");
             System.out.println(nickname+""+detail+""+score+""+option);
             return "redirect:/student";
         }
     }
-
-
-
+    
 }

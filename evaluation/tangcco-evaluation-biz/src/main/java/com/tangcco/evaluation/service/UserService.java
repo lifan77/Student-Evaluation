@@ -20,4 +20,5 @@ public interface UserService {
     * @Date: 2019/3/22
     */
     User login(User user);
+    Integer userLand(Integer userId);
 }

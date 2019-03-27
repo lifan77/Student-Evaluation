@@ -39,6 +39,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.login(user);
     }
 
+    @Override
+    public Integer userLand(Integer userId) {
+        return userMapper.userLand(userId);
+    }
 
 
 }
