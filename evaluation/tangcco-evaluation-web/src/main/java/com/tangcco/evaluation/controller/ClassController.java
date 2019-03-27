@@ -7,6 +7,7 @@ import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.Class;
 import com.tangcoo.evaluation.pojo.Grade;
 import com.tangcoo.evaluation.pojo.Teacher;
+import com.tangcoo.evaluation.pojo.Class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
+import java.util.List;
+
+@RequestMapping("/class")
 @Controller
 public class ClassController {
     @Autowired
@@ -146,15 +150,21 @@ public class ClassController {
 
     @RequestMapping("deleteClass")
     @ResponseBody
-    public Boolean deleteClass(Integer classId,Map map){
+    public Boolean deleteClass(Integer classId,Map map) {
         Class c = classService.selectClassById(classId);
         c.setStatus(1);
         Integer count = classService.updateClassById(c);
-        if (count>0){
+        if (count > 0) {
             return true;
-        }else {
-           return  false;
+        } else {
+            return false;
         }
-
     }
+    @ResponseBody
+    @RequestMapping("/classes")
+    public List<Class> clesses(Integer gradeId){
+        return classService.findAllByExample(gradeId);
+    }
+
+
 }

@@ -14,4 +14,5 @@ public interface AnswerService {
     * @Date: 2019/3/23 
     */ 
     List<Answer> queryAnswerId();
+    Integer addAnswer(Answer answer);
 }

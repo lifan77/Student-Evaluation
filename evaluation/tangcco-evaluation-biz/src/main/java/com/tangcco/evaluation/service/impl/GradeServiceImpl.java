@@ -17,4 +17,8 @@ public class GradeServiceImpl implements GradeService {
     public List<Grade> selectGradeList() {
         return gradeMapper.selectAll();
     }
+    @Override
+    public List<Grade> findAll() {
+        return gradeMapper.selectAll();
+    }
 }

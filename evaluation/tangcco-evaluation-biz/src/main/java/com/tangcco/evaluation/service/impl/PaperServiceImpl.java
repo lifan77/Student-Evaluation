@@ -22,22 +22,33 @@ public class PaperServiceImpl implements PaperService {
     private PaperMapper paperMapper;
 
     @Override
-    public PageResult<Paper> findAllByExample(Paper paper, Integer pageNum, Integer pageSize) {
+    public PageResult<Paper> findAllByExample(String date1,String date2,Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(Paper.class);
         example.setOrderByClause("create_time desc");
         Example.Criteria criteria = example.createCriteria();
-        //criteria.andEqualTo("paperId",1);
+        if(date1 != null && date2 != null){
+            if(!date1.equals("") && !date2.equals("")){
+                criteria.andBetween("createTime",date1,date2);
+            }
+        }
         List<Paper> papers = paperMapper.selectByExample(example);
         PageInfo<Paper> pageInfo=new PageInfo<>(papers) ;
-        return new PageResult<Paper>(pageInfo.getSize(), pageInfo.getPages(), pageInfo.getList());
+        return new PageResult<Paper>(pageInfo.getTotal(), pageInfo.getPages(), pageInfo.getList());
     }
 
     @Override
-    public void save(Paper paper) {
-        paperMapper.insert(paper);
+    public int save(Paper paper) {
+        return paperMapper.insert(paper);
     }
 
+    /**
+    * @Description: 解析json
+    * @Param: []
+    * @return: java.util.List<com.tangcoo.evaluation.pojo.Paper>
+    * @Author: ShiDunKai
+    * @Date: 2019/3/24
+    */
     @Override
     public List<Paper> findJson() {
         return paperMapper.selectAll();

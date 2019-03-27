@@ -15,14 +15,16 @@ public class Paper {
 
     private String direction;
 
+    private Integer gradeId;
+
     private String classes;
 
     private Integer teacherType;
 
     private Date createTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date beginTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date endTime;
 
 }

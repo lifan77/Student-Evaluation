@@ -11,4 +11,5 @@ public interface GradeService {
      * @return
      */
     List<Grade> selectGradeList();
+    List<Grade> findAll();
 }

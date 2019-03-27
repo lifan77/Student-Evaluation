@@ -101,7 +101,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="网站设置.html" target="myFrame">新增测评</a>
+                            <a href="/paper/savePage" target="myFrame">新增测评</a>
                         </dd>
                         <!-- <dd data-name="console">
                           <a href="邮件SMTP设置.html" target="myFrame">邮件SMTP设置</a>
