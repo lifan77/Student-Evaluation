@@ -3,7 +3,7 @@
 <mapper namespace="com.tangcco.evaluation.dao.ClassMapper">
     <resultMap id="classMap" type="com.tangcoo.evaluation.pojo.Class">
         <id column="class_id" jdbcType="INTEGER" property="classId"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="cname" jdbcType="VARCHAR" property="name"/>
         <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
         <result column="class_teacher_id" jdbcType="INTEGER" property="classTeacherId"/>
         <result column="grade_id" jdbcType="INTEGER" property="gradeId"/>
@@ -12,19 +12,27 @@
         <result column="open_time" jdbcType="DATE" property="openTime"/>
         <association property="grade" resultMap="gradeMap"></association>
         <association property="teacher" resultMap="teacherMap"></association>
+        <association property="classTeacher" resultMap="classTeacherMap"></association>
     </resultMap>
     <resultMap id="gradeMap" type="com.tangcoo.evaluation.pojo.Grade">
         <id column="grade_id" jdbcType="INTEGER" property="gradeId"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="gname" jdbcType="VARCHAR" property="name"/>
         <result column="duration" jdbcType="INTEGER" property="duration"/>
     </resultMap>
     <resultMap id="teacherMap" type="com.tangcoo.evaluation.pojo.Teacher">
         <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="t1name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+    </resultMap>
+    <resultMap id="classTeacherMap" type="com.tangcoo.evaluation.pojo.Teacher">
+        <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+        <result column="t2name" jdbcType="VARCHAR" property="name"/>
         <result column="type" jdbcType="INTEGER" property="type"/>
     </resultMap>
     <select id="selectClassByClassGrade" resultMap="classMap">
-        SELECT *
+        SELECT c.class_id,c.name AS cname,c.class_teacher_id,c.grade_id,c.open_time,c.status,
+        c.teacher_id,c.total_stu,g.duration,g.grade_id,g.name AS gname,t1.name AS t1name,t1.teacher_id,
+        t1.type,t2.name AS t2name,t2.teacher_id,t2.type
         FROM class AS c,teacher AS t1,teacher AS t2 ,grade AS g
         WHERE c.teacher_id = t1.teacher_id
         AND t2.teacher_id = c.class_teacher_id
@@ -45,15 +53,32 @@
        <include refid="classWhere"/>
     </select>
     <sql id="classWhere">
-        <if test="className!=null or gradeName!=null ">
+        <if test="className!=null or gradeId!=null ">
             <trim prefix="and (" prefixOverrides="and" suffix=")">
                 <if test="className!=null and className!=''">
                     AND c.name LIKE concat('%', #{className}, '%')
                 </if>
-                <if test="gradeName!=null and gradeName!=''">
-                    AND g.name LIKE concat('%', #{gradeName}, '%')
+                <if test="gradeId!=null and gradeId!=''">
+                    AND c.grade_id = #{gradeId}
                 </if>
             </trim>
         </if>
     </sql>
+
+    <select id="selectClassById" resultMap="classMap">
+        SELECT c.class_id,c.name AS cname,c.class_teacher_id,c.grade_id,c.open_time,c.status,c.teacher_id,c.total_stu,g.duration,g.grade_id,g.name AS gname,t1.name AS t1name,t1.teacher_id,t1.type,t2.name AS t2name,t2.teacher_id,t2.type
+            FROM class AS c,teacher AS t1,teacher AS t2 ,grade AS g
+            WHERE c.teacher_id = t1.teacher_id
+            AND t2.teacher_id = c.class_teacher_id
+            AND g.grade_id=c.grade_id
+            AND c.status=0
+            AND c.class_id=#{classId}
+    </select>
+
+
+    <update id="updateClassById" >
+        UPDATE evaluate.class
+	        SET `name`= #{name},teacher_id = #{teacherId},class_teacher_id =#{classTeacherId},grade_id = #{gradeId},`status` = #{status},total_stu =#{totalStu},open_time=#{openTime}
+	        WHERE class_id =#{classId}
+    </update>
 </mapper>

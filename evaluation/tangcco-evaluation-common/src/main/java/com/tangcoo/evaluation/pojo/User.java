@@ -3,6 +3,7 @@ package com.tangcoo.evaluation.pojo;
 import lombok.Data;
 
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Data
 @Table(name = "user")
@@ -18,4 +19,6 @@ public class User {
     private String number;
 
     private String password;
+    @Transient
+    private Class aClass;
 }

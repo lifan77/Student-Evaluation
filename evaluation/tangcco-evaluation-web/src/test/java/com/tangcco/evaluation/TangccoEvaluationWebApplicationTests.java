@@ -2,16 +2,15 @@ package com.tangcco.evaluation;
 
 import com.tangcco.evaluation.dao.ClassMapper;
 import com.tangcco.evaluation.service.ClassService;
+import com.tangcco.evaluation.service.GradeService;
+import com.tangcco.evaluation.service.TeacherService;
 import com.tangcco.evaluation.service.UserService;
-import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.Class;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,9 +30,12 @@ public class TangccoEvaluationWebApplicationTests {
     private UserService userService;
     @Autowired
     private ClassService classService;
-
+    @Autowired
+    private TeacherService teacherService;
     @Autowired
     private ClassMapper classMapper;
+    @Autowired
+    private GradeService gradeService;
     @Test
     public void contextLoads() {
         /*User user=new User();
@@ -47,17 +49,30 @@ public class TangccoEvaluationWebApplicationTests {
         }else{
             System.out.println("验证失败");
         }*/
-        //测试班级列表
-       PageDto<Class> classes = classService.selectClassByClassGrade(1,3,"TCMP067","AccpS1");
-       List<Class> classList = classes.getData();
-       for (Class c : classList){
-           System.out.println(c.getName()+c.getClassTeacherId()+"===================================");
-       }
+
     }
     @Test
     public void classTest(){
-       Integer count = classService.getClassCount("TCMP067","Accp-S1");
-        System.out.println("==========="+count);
+        //测试班级列表
 
+        Class c = new Class();
+//        c.setClassId(12);
+//        c.setStatus(1);
+        Class classs= classService.selectClassById(1);
+        System.out.println(classs+"+++++++++++++++++++++++");
+        classs.setTotalStu(99);
+        classs.setStatus(1);
+        Integer count =  classService.updateClassById(classs);
+        if(count>0){
+            System.out.println("修改成功");
+        }else {
+            System.out.println("修改失败");
+        }
+    }
+
+    @Test
+    public void testDetail(){
+        Class c = classService.selectClassById(1);
+        System.out.println("chenjianghongwosilema:"+c);
     }
 }
