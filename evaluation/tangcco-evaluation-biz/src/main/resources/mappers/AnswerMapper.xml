@@ -13,5 +13,63 @@
         <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
         <result column="paper_id" jdbcType="INTEGER" property="paperId"/>
     </resultMap>
-
+    <select id="queryCount" resultType="int">
+        SELECT COUNT(1) FROM (
+                                 SELECT COUNT(1) FROM (
+                                                          SELECT * FROM answer WHERE create_time LIKE CONCAT(#{mouth},'%')
+                                                      ) AS linshi
+                                 GROUP BY DATE_FORMAT( linshi.create_time, "%Y-%m-%d" )
+                             ) AS ls
+    </select>
+    <select id="queryTeacherOrderList" resultType="map">
+        SELECT te.teacher_id,te.name,AVG(total_score) score FROM answer AS an
+        INNER JOIN teacher te
+        WHERE an.create_time LIKE CONCAT(#{mouth},'%') AND an.teacher_id=te.teacher_id
+        GROUP BY an.teacher_id
+        <if test="status=='false'">
+            ORDER BY AVG(total_score)
+        </if>
+        <if test="status=='true'">
+            ORDER BY AVG(total_score) DESC
+        </if>
+    </select>
+    <select id="queryAllTeacherOrderList" resultType="map">
+        SELECT te.teacher_id,te.name,AVG(total_score) score FROM answer AS an
+        INNER JOIN teacher te
+        WHERE an.teacher_id=te.teacher_id
+        GROUP BY an.teacher_id
+        <if test="status=='false'">
+            ORDER BY AVG(total_score)
+        </if>
+        <if test="status=='true'">
+            ORDER BY AVG(total_score) DESC
+        </if>
+    </select>
+    <select id="queryTeacherName" resultType="string">
+        select name from teacher where teacher_id=#{teacherId}
+    </select>
+    <select id="queryTeacherOpinion" resultType="map">
+        SELECT nickname,opinion,create_time FROM answer
+        WHERE teacher_id=#{teacherId} AND opinion!='无' AND opinion!=''
+            LIMIT 0,#{top}
+    </select>
+    <select id="queryTeacherOpinionCount" resultType="int">
+        SELECT COUNT(1) FROM answer WHERE teacher_id=#{teacherId} AND opinion!='无' AND opinion!=''
+    </select>
+    <select id="queryTeacherAVGById" resultType="map">
+        SELECT DATE_FORMAT(create_time, '%Y-%m') AS ti,AVG(total_score) AS score FROM answer
+        WHERE teacher_id=#{teacherId}
+          AND create_time &lt; #{createTime}
+        GROUP BY DATE_FORMAT(create_time, '%Y-%m')
+        LIMIT 0,3
+    </select>
+    <select id="queryJsonById" resultType="string">
+        SELECT detail FROM answer WHERE teacher_id=#{teacherId} AND create_time LIKE CONCAT(#{mouth},'%')
+    </select>
+    <select id="queryPM" resultType="map">
+        SELECT teacher_id,AVG(total_score) AS score FROM answer
+        WHERE create_time LIKE  CONCAT(#{mouth},'%')
+        GROUP BY teacher_id
+        ORDER BY AVG(total_score) desc
+    </select>
 </mapper>
