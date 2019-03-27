@@ -35,16 +35,10 @@ public class ClassServiceImpl implements ClassService {
     }
 
     @Override
-    public Integer getClassCount(String className, String gradeName) {
-        return classMapper.getClassCount(className,gradeName);
-    }
-
-    @Override
-    public PageDto<Class> selectClassByClassGrade(Integer pageNo, Integer pageSize, String className, String gradeName) {
+    public PageDto<Class> selectClassByClassGrade(Integer pageNo, Integer pageSize, String className,Integer gradeId) {
         int offset=(pageNo-1)*pageSize;
-        List<Class> classList = classMapper.selectClassByClassGrade(offset,pageSize,className,gradeName);
-        System.out.println(classList);
-        Long classCount = (long)classMapper.getClassCount(className,gradeName);
+        List<Class> classList = classMapper.selectClassByClassGrade(offset,pageSize,className,gradeId);
+        Long classCount = (long)classMapper.getClassCount(className,gradeId);
         PageDto<Class> classPageDto =new PageDto<>();
         classPageDto.setTotal(classCount);
         classPageDto.setPageSize(pageSize);
@@ -53,6 +47,37 @@ public class ClassServiceImpl implements ClassService {
         int pages=(int)(classCount/pageSize+(classCount%pageSize>0?1:0));
         classPageDto.setPages(pages);
         return classPageDto;
+    }
+
+    @Override
+    public Integer addClass(Class c) {
+        return classMapper.insert(c);
+    }
+
+    @Override
+    public Integer updateClass(Class c) {
+        c.setClassId(12);
+        c.setStatus(1);
+
+        System.out.println("数据："+c);
+
+        return classMapper.updateByPrimaryKeySelective(c);
+
+    }
+
+    @Override
+    public Class selectClassById(Integer classId) {
+        return classMapper.selectClassById(classId);
+    }
+
+    @Override
+    public Integer updateClassById(Class c) {
+        return classMapper.updateClassById(c);
+    }
+
+    @Override
+    public Integer getClassCount(String className, Integer gradeId) {
+        return classMapper.getClassCount(className,gradeId);
     }
 
 }

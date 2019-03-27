@@ -12,6 +12,11 @@ import java.util.List;
 public class GradeServiceImpl implements GradeService {
     @Autowired
     private GradeMapper gradeMapper;
+
+    @Override
+    public List<Grade> selectGradeList() {
+        return gradeMapper.selectAll();
+    }
     @Override
     public List<Grade> findAll() {
         return gradeMapper.selectAll();

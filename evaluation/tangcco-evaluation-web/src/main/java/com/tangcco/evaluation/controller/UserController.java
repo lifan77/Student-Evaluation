@@ -262,5 +262,5 @@ public class UserController {
             return "redirect:/student";
         }
     }
-    
+
 }

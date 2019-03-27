@@ -53,10 +53,10 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console" class="layui-this">
-                            <a href="法规列表.html" target="myFrame">班级列表</a>
+                            <a href="ClassList" target="myFrame">班级信息</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="新增法规.html" target="myFrame">新增班级</a>
+                            <a href="addClass" target="myFrame">新增班级</a>
                         </dd>
                         <!--<dd data-name="console">
                           <a href="法规目录管理.html" target="myFrame">法规目录管理</a>

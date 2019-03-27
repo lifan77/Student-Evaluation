@@ -21,18 +21,47 @@ public interface ClassService {
      * @param pageNo 页面
      * @param pageSize 页面数量
      * @param className 班级名称
-     * @param gradeName  年级名称
+     * @param gradeId  年级名称
      * @deprecated :根据年级名称或者班级名称模糊查询班级列表
      * @return
      */
-      PageDto<Class> selectClassByClassGrade(Integer pageNo, Integer pageSize, String className, String gradeName);
+      PageDto<Class> selectClassByClassGrade(Integer pageNo, Integer pageSize, String className, Integer gradeId);
 
     /**
      * @author:lifan
      * @param className 班级名称
-     * @param gradeName 年级名称
+     * @param gradeId 年级名称
      * @deprecated :查询班级总数量
      * @return
      */
-    Integer getClassCount( String className,String gradeName);
+    Integer getClassCount( String className,Integer gradeId);
+
+    /**
+     * @author:lifan
+     * @deprecated :新增班级
+     * @return
+     */
+    Integer addClass(Class c);
+    /**
+     * @author:lifan
+     * @deprecated :修改班级
+     * @return
+     */
+    Integer updateClass(Class c);
+
+    /**
+     * @author : lifan
+     * @param classId 班级id
+     * @deprecated : 根据id查询班级信息
+     * @return
+     */
+    Class selectClassById(Integer classId);
+
+    /**
+     * @author: lifan
+     * @param c
+     * @deprecated : 根据id修改班级信息
+     * @return
+     */
+    Integer updateClassById(Class c);
 }
