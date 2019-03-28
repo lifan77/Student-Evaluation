@@ -3,7 +3,6 @@ package com.tangcco.evaluation.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.tangcco.evaluation.dao.AnswerMapper;
 import com.tangcco.evaluation.service.AnswerService;
-
 import com.tangcoo.evaluation.dto.DetailJson;
 import com.tangcoo.evaluation.pojo.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,4 +122,24 @@ public class AnswerServiceImpl implements AnswerService {
         map.put("rank",rank);
         return map;
     }
+
+    @Override
+    public List<Answer> findAnswer(Integer cid, Integer pid) {
+        return answerMapper.getAnswer(cid, pid);
+    }
+
+
+    @Override
+    public Integer avgAnswerScore(Integer cid, Integer pid) {
+        Integer minCount=answerMapper.minScoreCount(cid,pid);
+        Integer maxCount=answerMapper.maxScoreCount(cid,pid);
+        return answerMapper.avgAnswerScore(cid, pid,minCount,maxCount);
+    }
+
+    @Override
+    public Answer getAnswerDetail(Integer aid) {
+        return answerMapper.getAnswerDetail(aid);
+    }
+
+
 }

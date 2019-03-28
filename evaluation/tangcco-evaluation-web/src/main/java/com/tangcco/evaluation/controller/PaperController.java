@@ -1,5 +1,8 @@
 package com.tangcco.evaluation.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.tangcco.evaluation.service.GradeService;
 import com.tangcco.evaluation.service.PaperService;
 import com.tangcoo.evaluation.dto.PageResult;
@@ -8,11 +11,15 @@ import com.tangcoo.evaluation.pojo.Paper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * CreateDate: 2019/3/21 19:17
@@ -68,6 +75,54 @@ public class PaperController {
             return new Result(false, "添加失败");
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @RequestMapping("totestScore")
+    public String totestScore(Model model, Integer pid , Integer cid){
+        pid=pid==null?0:pid;
+        cid=cid==null?0:cid;
+        model.addAttribute("pid",pid);
+        model.addAttribute("cid",cid);
+        return "testScore";
+
+    }
+
+    @RequestMapping("totestScoreDetail")
+    public String totestScoreDetail(){
+        return "testScoreDetail";
+    }
+
+
+
+    @RequestMapping("getPapers")
+    @ResponseBody
+    public JSON getPapers(){
+        List<Paper> papers=paperService.getPaperList();
+        return (JSON)JSON.toJSON(papers);
+    }
+
+    @RequestMapping("getPaperClasses")
+    @ResponseBody
+    public JSON getPaperClasses(Integer pid){
+        Paper paper=paperService.getPaperClasses(pid);
+        JSONObject jsonObject=JSONObject.parseObject(paper.getClasses());//获取json数据
+        JSONArray jsonArray=jsonObject.getJSONArray("classes");//根据键获取json中的json数组
+
+        return (JSON)JSON.toJSON(jsonArray);
+    }
+
 
 
 }

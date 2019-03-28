@@ -14,5 +14,13 @@
         <result column="teacher_type" javaType="INTEGER" property="teacherType"/>
 
     </resultMap>
+    <select id="getPaperList" resultMap="BaseResultMap">
+        select * from paper
+    </select>
+
+    <select id="getPaperClasses" resultMap="BaseResultMap">
+        select * from paper where paper_id=#{pid}
+    </select>
+
 
 </mapper>

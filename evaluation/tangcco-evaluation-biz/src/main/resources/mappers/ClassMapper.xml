@@ -4,6 +4,7 @@
     <resultMap id="classMap" type="com.tangcoo.evaluation.pojo.Class">
         <id column="class_id" jdbcType="INTEGER" property="classId"/>
         <result column="cname" jdbcType="VARCHAR" property="name"/>
+        <!--<result column="cname" jdbcType="VARCHAR" property="cname"/>-->
         <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
         <result column="class_teacher_id" jdbcType="INTEGER" property="classTeacherId"/>
         <result column="grade_id" jdbcType="INTEGER" property="gradeId"/>
@@ -28,8 +29,19 @@
         <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
         <result column="t2name" jdbcType="VARCHAR" property="name"/>
         <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="cname"  property="cname"/>
     </resultMap>
-    <select id="selectClassByClassGrade" resultMap="classMap">
+        <resultMap id="BaseResultMap" type="com.tangcoo.evaluation.pojo.Class">
+            <id column="class_id" jdbcType="INTEGER" property="classId"/>
+            <result column="name" jdbcType="VARCHAR" property="name"/>
+            <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+            <result column="class_teacher_id" jdbcType="INTEGER" property="classTeacherId"/>
+            <result column="grade_id" jdbcType="INTEGER" property="gradeId"/>
+            <result column="status" jdbcType="INTEGER" property="status"/>
+            <result column="total_stu" jdbcType="INTEGER" property="totalStu"/>
+            <result column="open_time" jdbcType="DATE" property="openTime"/>
+        </resultMap>
+        <select id="selectClassByClassGrade" resultMap="classMap">
         SELECT c.class_id,c.name AS cname,c.class_teacher_id,c.grade_id,c.open_time,c.status,
         c.teacher_id,c.total_stu,g.duration,g.grade_id,g.name AS gname,t1.name AS t1name,t1.teacher_id,
         t1.type,t2.name AS t2name,t2.teacher_id,t2.type
@@ -65,7 +77,7 @@
         </if>
     </sql>
 
-    <select id="selectClassById" resultMap="classMap">
+    <select id="selectClassById" resultMap="classMap" >
         SELECT c.class_id,c.name AS cname,c.class_teacher_id,c.grade_id,c.open_time,c.status,c.teacher_id,c.total_stu,g.duration,g.grade_id,g.name AS gname,t1.name AS t1name,t1.teacher_id,t1.type,t2.name AS t2name,t2.teacher_id,t2.type
             FROM class AS c,teacher AS t1,teacher AS t2 ,grade AS g
             WHERE c.teacher_id = t1.teacher_id
@@ -81,4 +93,22 @@
 	        SET `name`= #{name},teacher_id = #{teacherId},class_teacher_id =#{classTeacherId},grade_id = #{gradeId},`status` = #{status},total_stu =#{totalStu},open_time=#{openTime}
 	        WHERE class_id =#{classId}
     </update>
+    <!--///////////////////////////////////////////////////////////////////////////-->
+    <select id="getClassList" resultMap="BaseResultMap">
+        SELECT 	class_id,
+                  NAME,
+                  teacher_id,
+                  class_teacher_id,
+                  grade_id,
+                  STATUS,
+                  total_stu,
+                  open_time
+        FROM
+            evaluate.class
+    </select>
+
+    <select id="getClazz" parameterType="Integer" resultMap="BaseResultMap">
+        select * from class where class_id=#{cid}
+    </select>
+
 </mapper>

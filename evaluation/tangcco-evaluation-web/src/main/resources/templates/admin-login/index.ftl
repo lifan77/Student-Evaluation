@@ -26,17 +26,18 @@
 </div>
 <div class="form">
     <div class="thumbnail"><img src="/admin-login/css/hat.svg"/></div>
-    <form class="login-form" action="/student/studentLogin" method="post">
+    <form id="formx" class="login-form" action="/student/studentLogin" method="post">
         <select id="select" name="classId">
-            <option selected="selected">请选择测评班级</option>
+            <option selected="selected" value="0">请选择测评班级</option>
             <#list map?keys as key>
                 <option value="${key}">${map[key]}</option>
             </#list>
         </select>
-        <input name="name" type="text" placeholder="请输入真实姓名"/>
-        <input name="password" type="password" placeholder="请输入密码(身份证号后六位)"/>
-        <button>登录</button>
+        <input id="name" name="name" type="text" placeholder="请输入真实姓名"/>
+        <input id="password" name="password" type="password" placeholder="请输入密码(身份证号后六位)"/>
     </form>
+        <button id="tijiao">登录</button>
+
 </div>
 <script src='/admin-login/js/jquery.min.js'></script>
 <script src="/admin-login/js/index.js"></script>
@@ -47,6 +48,18 @@
         if(msg.length!=0){
             layer.msg(msg);
         }
+        $("#tijiao").click(function () {
+            var select=$("#select").val();
+            var name=$("#name").val();
+            var password=$("#password").val();
+            if(select==0||name.length==0||password==0){
+                alert("请完善登录信息！")
+            }else{
+                $("#formx").submit();
+            }
+        })
+
+        //$("#tijiao").submit()
     })
 </script>
 </body>

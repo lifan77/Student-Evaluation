@@ -2,6 +2,7 @@ package com.tangcco.evaluation.service;
 
 import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.Class;
+import com.tangcoo.evaluation.pojo.Teacher;
 
 import java.util.List;
 
@@ -64,4 +65,12 @@ public interface ClassService {
      * @return
      */
     Integer updateClassById(Class c);
+    public List<Class> findClassList();
+
+    Class findClazz(Integer cid);
+
+    List<Teacher> getTeacherList(Class clazz);
+
+    Teacher getTeacher2(Integer tid);
+
 }

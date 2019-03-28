@@ -49,4 +49,7 @@ public interface ClassMapper extends Mapper<Class> {
      * @return
      */
     Integer updateClassById(Class c);
+    public List<Class> getClassList();
+
+    Class getClazz(Integer cid);
 }

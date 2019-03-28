@@ -18,4 +18,9 @@ public interface TeacherService {
      * @return
      */
     List<Teacher> selectTeacherByclassTeacher(Teacher classTeacherID);
+    List<Teacher> findTeacher(Integer typeId,String name);
+
+    Teacher findTeacherById(Integer teacher_id);
+
+    Integer deleteTeacherById( Integer teacher_id);
 }

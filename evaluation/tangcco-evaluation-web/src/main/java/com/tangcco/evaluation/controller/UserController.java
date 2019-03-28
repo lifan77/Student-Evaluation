@@ -78,16 +78,14 @@ public class UserController {
         this.classId=classId;   //33333333333333333333333333333333333333333333333333333333333333333333333333
         Class c=new Class();
         c.setClassId(this.classId);
-        Class c2=classService.select(c).get(0);
-        this.teacherId=c2.getTeacherId();//33333333333333333333333333333333333333333333333333333333333333333
-        this.classTeacherId=c2.getClassTeacherId();//3333333333333333333333333333333333333333333333333333333
-        this.gradeId=c2.getGradeId();
+
         //user.setLand(1);
         user.setName(name);
         String yan=password;
         User user1=userService.login(user);
-        this.userId=user1.getUserId();/////////////////////////////////////////////////////////////////////////获取用户id
+
         if(user1!=null){
+            this.userId=user1.getUserId();/////////////////////////////////////////////////////////////////////////获取用户id
             System.out.println(user1);
             String seng=user1.getNumber().substring(12,18);//获取后六位
             Integer land=user1.getLand();//获取登录状态
@@ -96,6 +94,10 @@ public class UserController {
                 System.out.println("允许登录");
                 if(seng.equals(yan)){
                     System.out.println("验证成功");
+                    Class c2=classService.select(c).get(0);
+                    this.teacherId=c2.getTeacherId();//33333333333333333333333333333333333333333333333333333333333333333
+                    this.classTeacherId=c2.getClassTeacherId();//3333333333333333333333333333333333333333333333333333333
+                    this.gradeId=c2.getGradeId();
                     model.addAttribute("msg","身份验证成功，允许登录。");
                     return "forward:/student/exam1";
                 }else{

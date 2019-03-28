@@ -38,4 +38,10 @@ public interface AnswerService {
     List<Map> queryTeacherAVGById(Integer teacherId);
     Map<String,Integer> queryJsonById(Integer teacherId);
     Map<String,String> queryPM(Integer teacherId);
+    List<Answer> findAnswer(Integer cid,Integer pid);
+
+    Integer avgAnswerScore(Integer cid, Integer pid);
+
+    Answer getAnswerDetail(Integer aid);
+
 }

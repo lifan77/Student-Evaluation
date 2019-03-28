@@ -53,10 +53,10 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console" class="layui-this">
-                            <a href="ClassList" target="myFrame">班级信息</a>
+                            <a href="/class/ClassList" target="myFrame">班级信息</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="addClass" target="myFrame">新增班级</a>
+                            <a href="/class/addClass" target="myFrame">新增班级</a>
                         </dd>
                         <!--<dd data-name="console">
                           <a href="法规目录管理.html" target="myFrame">法规目录管理</a>
@@ -79,7 +79,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="用户列表.html" target="myFrame">班主任列表</a>
+                            <a href="/teacherList" target="myFrame">班主任列表</a>
                         </dd>
                     </dl>
                 </li>
@@ -90,7 +90,10 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="咨询列表.html" target="myFrame">新增题库</a>
+                            <a href="/question/questions" target="myFrame">题库管理</a>
+                        </dd>
+                        <dd data-name="console">
+                            <a href="/question/savePage" target="myFrame">新增题目</a>
                         </dd>
                     </dl>
                 </li>
@@ -102,6 +105,9 @@
                     <dl class="layui-nav-child">
                         <dd data-name="console">
                             <a href="/paper/savePage" target="myFrame">新增测评</a>
+                        </dd>
+                        <dd data-name="console">
+                            <a href="/paper/papers" target="myFrame">发布历史</a>
                         </dd>
                         <!-- <dd data-name="console">
                           <a href="邮件SMTP设置.html" target="myFrame">邮件SMTP设置</a>
@@ -124,7 +130,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="网站设置.html" target="myFrame">学生测评列表</a>
+                            <a href="/paper/totestScore" target="myFrame">学生测评列表</a>
                         </dd>
                         <!-- <dd data-name="console">
                           <a href="邮件SMTP设置.html" target="myFrame">邮件SMTP设置</a>

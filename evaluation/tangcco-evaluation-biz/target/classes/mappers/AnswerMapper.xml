@@ -72,4 +72,38 @@
         GROUP BY teacher_id
         ORDER BY AVG(total_score) desc
     </select>
+
+    <!--//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <select id="getAnswer" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT * FROM answer WHERE class_id=#{cid} AND paper_id=#{pid}
+    </select>
+    <!--SELECT AVG(total_score) FROM answer WHERE class_id=#{cid} AND teacher_id=#{tid}-->
+    <select id="avgAnswerScore" resultType="Integer">
+        SELECT AVG(total_score) FROM answer WHERE
+        paper_id=#{pid}
+        AND class_id=#{cid}
+        <if test="minCount==1 and maxCount==1">
+            AND total_score!=(SELECT MIN(total_score) FROM answer WHERE paper_id=#{pid} AND class_id=#{cid})
+            AND total_score!=(SELECT MAX(total_score) FROM answer WHERE paper_id=#{pid} AND class_id=#{cid})
+        </if>
+    </select>
+
+    <select id="getAnswerDetail" parameterType="int" resultMap="BaseResultMap">
+        select * from answer where answer_id=#{aid}
+    </select>
+
+    <select id="maxScoreCount" resultType="Integer">
+        SELECT COUNT(*) FROM answer WHERE
+            paper_id=#{pid}
+                                      AND class_id=#{cid}
+                                      AND total_score=(SELECT MAX(total_score) FROM answer where paper_id=#{pid} AND class_id=#{cid})
+    </select>
+
+    <select id="minScoreCount" resultType="Integer">
+        SELECT COUNT(*) FROM answer WHERE
+            paper_id=#{pid}
+                                      AND class_id=#{cid}
+                                      AND total_score=(SELECT MIN(total_score) FROM answer where paper_id=#{pid} AND class_id=#{cid})
+    </select>
+
 </mapper>

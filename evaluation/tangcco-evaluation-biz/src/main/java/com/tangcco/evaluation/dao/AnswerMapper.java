@@ -38,4 +38,14 @@ public interface AnswerMapper extends Mapper<Answer> {
 
     List<String> queryJsonById(@Param("teacherId")Integer teacherId,@Param("mouth")String mouth);
     List<Map> queryPM(@Param("mouth")String mouth);
+    List<Answer> getAnswer(@Param("cid")Integer cid, @Param("pid")Integer pid);
+
+    Integer avgAnswerScore(@Param("cid")Integer cid, @Param("pid")Integer pid,@Param("minCount")Integer minCount,@Param("maxCount")Integer maxCount);
+
+    Answer getAnswerDetail(Integer aid);
+
+    Integer maxScoreCount(@Param("cid")Integer cid,@Param("pid")Integer pid);
+
+    Integer minScoreCount(@Param("cid")Integer cid,@Param("pid")Integer pid);
+
 }

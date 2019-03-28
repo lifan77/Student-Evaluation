@@ -21,7 +21,7 @@ public class PaperServiceImpl implements PaperService {
     @Autowired
     private PaperMapper paperMapper;
 
-    @Override
+@Override
     public PageResult<Paper> findAllByExample(String date1,String date2,Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(Paper.class);
@@ -37,11 +37,6 @@ public class PaperServiceImpl implements PaperService {
         return new PageResult<Paper>(pageInfo.getTotal(), pageInfo.getPages(), pageInfo.getList());
     }
 
-    @Override
-    public int save(Paper paper) {
-        return paperMapper.insert(paper);
-    }
-
     /**
     * @Description: 解析json
     * @Param: []
@@ -53,4 +48,26 @@ public class PaperServiceImpl implements PaperService {
     public List<Paper> findJson() {
         return paperMapper.selectAll();
     }
+
+
+    @Override
+    public int save(Paper paper) {
+       return  paperMapper.insert(paper);
+    }
+
+
+
+
+    @Override
+    public List<Paper> getPaperList() {
+        return paperMapper.getPaperList();
+    }
+
+    @Override
+    public Paper getPaperClasses(Integer pid) {
+        return paperMapper.getPaperClasses(pid);
+    }
+
+
+
 }

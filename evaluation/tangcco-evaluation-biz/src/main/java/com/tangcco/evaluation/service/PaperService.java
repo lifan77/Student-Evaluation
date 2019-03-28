@@ -30,4 +30,20 @@ public interface PaperService {
     * @Date: 2019/3/23 
     */ 
     List<Paper> findJson();
+
+    /**
+     * 查询所有Paper表数据，用于下拉框展示
+     * @return
+     */
+    List<Paper> getPaperList();
+
+    /**
+     * 根据ID查询CLasses
+     * @param pid
+     * @return
+     */
+    Paper getPaperClasses(Integer pid);
+
+
+
 }

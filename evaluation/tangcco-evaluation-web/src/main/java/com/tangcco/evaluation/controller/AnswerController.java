@@ -1,12 +1,15 @@
 package com.tangcco.evaluation.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.tangcco.evaluation.service.AnswerService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.tangcco.evaluation.service.ClassService;
+import com.tangcoo.evaluation.pojo.Answer;
+import com.tangcoo.evaluation.pojo.Teacher;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -96,4 +99,38 @@ public class AnswerController {
     public Map<String,String> getPM(@RequestParam("teacherId")String teacherId){
         return answerService.queryPM(Integer.parseInt(teacherId));
     }
+
+
+    @Resource
+    private ClassService classService;
+
+
+
+    @RequestMapping("toAnswerList")
+    @ResponseBody
+    public JSON toAnswerList(@RequestParam(value = "cid", required = false) Integer cid, @RequestParam(value = "pid", required = false) Integer pid) {
+        List<Answer> AnswerList = answerService.findAnswer(cid, pid);
+        Integer avgScore=answerService.avgAnswerScore(cid,pid);
+
+        Map<String,Object> resultMap=new HashMap<>();
+        resultMap.put("list",AnswerList);
+        resultMap.put("avgScore",avgScore);
+        return (JSON) JSON.toJSON(resultMap);
+    }
+
+    @RequestMapping("getAnswerDetail")
+    public String getAnswerDetail(Integer cid, Integer pid, Integer aid, Integer tid, Model model){
+        Answer answer=answerService.getAnswerDetail(aid);
+        model.addAttribute("detail",JSON.parseArray(answer.getDetail()));
+        model.addAttribute("pid",pid);
+        model.addAttribute("cid",cid);
+        return "testScoreDetail";
+    }
+
+    @ResponseBody
+    @RequestMapping("getTeacher")
+    public Teacher getTeacher(Integer tid){
+        return classService.getTeacher2(tid);
+    }
+
 }

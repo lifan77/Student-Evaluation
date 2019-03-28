@@ -1,24 +1,28 @@
 package com.tangcco.evaluation.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.tangcco.evaluation.service.AnswerService;
 import com.tangcco.evaluation.service.ClassService;
 import com.tangcco.evaluation.service.GradeService;
 import com.tangcco.evaluation.service.TeacherService;
 import com.tangcoo.evaluation.dto.PageDto;
+import com.tangcoo.evaluation.pojo.Answer;
 import com.tangcoo.evaluation.pojo.Class;
 import com.tangcoo.evaluation.pojo.Grade;
 import com.tangcoo.evaluation.pojo.Teacher;
-import com.tangcoo.evaluation.pojo.Class;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import java.util.List;
 
 @RequestMapping("/class")
 @Controller
@@ -164,6 +168,44 @@ public class ClassController {
     @RequestMapping("/classes")
     public List<Class> clesses(Integer gradeId){
         return classService.findAllByExample(gradeId);
+    }
+
+
+
+
+
+    @Resource
+    private AnswerService answerService;
+
+
+
+
+
+    @RequestMapping("toAnswerList")
+    @ResponseBody
+    public JSON toAnswerList(@RequestParam(value = "cid", required = false) Integer cid, @RequestParam(value = "pid", required = false) Integer pid) {
+        List<Answer> AnswerList = answerService.findAnswer(cid, pid);
+        Integer avgScore=answerService.avgAnswerScore(cid,pid);
+
+        Map<String,Object> resultMap=new HashMap<>();
+        resultMap.put("list",AnswerList);
+        resultMap.put("avgScore",avgScore);
+        return (JSON) JSON.toJSON(resultMap);
+    }
+
+    @RequestMapping("getAnswerDetail")
+    public String getAnswerDetail(Integer cid, Integer pid, Integer aid, Integer tid, Model model){
+        Answer answer=answerService.getAnswerDetail(aid);
+        model.addAttribute("detail",JSON.parseArray(answer.getDetail()));
+        model.addAttribute("pid",pid);
+        model.addAttribute("cid",cid);
+        return "testScoreDetail";
+    }
+
+    @ResponseBody
+    @RequestMapping("getTeacher")
+    public Teacher getTeacher(Integer tid){
+        return classService.getTeacher2(tid);
     }
 
 

@@ -1,13 +1,16 @@
 package com.tangcco.evaluation.service.impl;
 
 import com.tangcco.evaluation.dao.ClassMapper;
+import com.tangcco.evaluation.dao.TeacherMapper;
 import com.tangcco.evaluation.service.ClassService;
 import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.Class;
+import com.tangcoo.evaluation.pojo.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
@@ -78,6 +81,29 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public Integer getClassCount(String className, Integer gradeId) {
         return classMapper.getClassCount(className,gradeId);
+    }
+
+
+    @Resource
+    private TeacherMapper teacherMapper;
+    @Override
+    public List<Class> findClassList() {
+        return classMapper.getClassList();
+    }
+
+    @Override
+    public Class findClazz(Integer cid) {
+        return classMapper.getClazz(cid);
+    }
+
+    @Override
+    public List<Teacher> getTeacherList(Class clazz) {
+        return teacherMapper.getTeacherList(clazz);
+    }
+
+    @Override
+    public Teacher getTeacher2(Integer tid) {
+        return teacherMapper.getTeacher2(tid);
     }
 
 }
