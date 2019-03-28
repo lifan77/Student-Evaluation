@@ -204,7 +204,7 @@ public class ClassController {
 
     @ResponseBody
     @RequestMapping("getTeacher")
-    public Teacher getTeacher(Integer tid){
+    public Teacher getTeacher(@RequestParam(value = "tid",required = false) Integer tid){
         return classService.getTeacher2(tid);
     }
 

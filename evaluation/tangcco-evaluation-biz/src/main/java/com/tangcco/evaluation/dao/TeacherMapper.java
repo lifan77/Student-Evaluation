@@ -19,7 +19,7 @@ public interface TeacherMapper extends Mapper<Teacher> {
     Integer deleteTeacherById(@Param("teacherId") Integer teacherId);
     List<Teacher> getTeacherList(Class clazz);
 
-    Teacher getTeacher2(Integer tid);
+    Teacher getTeacher2(@Param("tid")Integer tid);
 
 
 }

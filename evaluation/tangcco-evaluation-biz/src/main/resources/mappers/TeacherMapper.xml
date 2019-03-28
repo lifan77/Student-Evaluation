@@ -10,18 +10,15 @@
     <select id="getTeacher" resultMap="demo">
         SELECT
         t.teacher_id,t.name tname ,t.type,c.class_id,
-        c.class_teacher_id,c.grade_id,c.name sname,c.open_time,
+        c.class_teacher_id,c.grade_id,c.name cname,c.open_time,
         c.status,c.teacher_id,c.total_stu
         FROM evaluate.teacher t INNER JOIN evaluate.class c ON t.teacher_id=c.class_teacher_id
         <where>
             <if test="name!=null and name !=''">
-                c.sname LIKE CONCAT('%',#{name},'%')
+                 t.name LIKE CONCAT('%',#{name},'%')
             </if>
-            <if test="name!=null and name !=''">
-                or t.name LIKE CONCAT('%',#{name},'%')
-            </if>
-            <if test="typeId!=null and typeId !=''">
-                or  `type`=#{typeId}
+            <if test="typeId!=null">
+                and  `type`=#{typeId}
             </if>
         </where>
     </select>
@@ -39,7 +36,7 @@
     </delete>
     <resultMap id="demo" type="com.tangcoo.evaluation.pojo.Teacher">
         <id column="teacher_id"  property="teacherId"/>
-        <result column="sname"  property="sname"/>
+        <result column="cname"  property="cname"/>
         <result column="type"  property="type"/>
         <result column="tname"  property="tname"/>
     </resultMap>
@@ -48,7 +45,7 @@
         select * from teacher where teacher_id=#{teacherId} or teacher_id=#{classTeacherId}
     </select>
 
-    <select id="getTeacher2" parameterType="Integer" resultMap="BaseResultMap">
+    <select id="getTeacher2" parameterType="Integer" resultMap="demo">
         select * from teacher where teacher_id=#{tid}
     </select>
 
