@@ -12,7 +12,7 @@
     <footer>
         <div>
             <table class="layui-table" style="word-break:break-all; word-wrap: break-word">
-                <thead>【
+                <thead>
                 <tr>
                     <th>题号</th>
                     <th>问题</th>
