@@ -59,15 +59,7 @@ public class TangccoEvaluationWebApplicationTests {
 //        c.setClassId(12);
 //        c.setStatus(1);
         Class classs= classService.selectClassById(1);
-        System.out.println(classs+"+++++++++++++++++++++++");
-        classs.setTotalStu(99);
-        classs.setStatus(1);
-        Integer count =  classService.updateClassById(classs);
-        if(count>0){
-            System.out.println("修改成功");
-        }else {
-            System.out.println("修改失败");
-        }
+        System.out.println(classs+"+++++++++++++++++++");
     }
 
     @Test

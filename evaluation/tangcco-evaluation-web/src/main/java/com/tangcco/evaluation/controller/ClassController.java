@@ -1,15 +1,10 @@
 package com.tangcco.evaluation.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.tangcco.evaluation.service.AnswerService;
-import com.tangcco.evaluation.service.ClassService;
-import com.tangcco.evaluation.service.GradeService;
-import com.tangcco.evaluation.service.TeacherService;
+import com.tangcco.evaluation.service.*;
 import com.tangcoo.evaluation.dto.PageDto;
-import com.tangcoo.evaluation.pojo.Answer;
+import com.tangcoo.evaluation.pojo.*;
 import com.tangcoo.evaluation.pojo.Class;
-import com.tangcoo.evaluation.pojo.Grade;
-import com.tangcoo.evaluation.pojo.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,10 +28,13 @@ public class ClassController {
     private GradeService gradeService;
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private NewTeacherService newTeacherService;
+    @Resource
+    private AnswerService answerService;
 
     @RequestMapping("ClassList")
     public String ClassList( String className, Integer gradeId,Map map){
-        System.out.println(className+gradeId+"============");
         PageDto<Class> classPageDto = classService.selectClassByClassGrade(1,10,className,gradeId);
         List<Grade> gradeList = gradeService.selectGradeList();
         map.put("grades",gradeList);
@@ -57,14 +55,14 @@ public class ClassController {
         List<Grade> gradeList = gradeService.selectGradeList();
         map.put("grades",gradeList);
         //查询type为1的班主任老师
-        Teacher teacher = new Teacher();
+        NewTeacher teacher = new NewTeacher();
         teacher.setType(1);
-        List<Teacher> teacherList = teacherService.selectTeacherById(teacher);
+        List<NewTeacher> teacherList = newTeacherService.selectTeacherById(teacher);
         map.put("teacher",teacherList);
         //查询type为2的教员老师
-        Teacher classTescher = new Teacher();
+        NewTeacher classTescher = new NewTeacher();
         classTescher.setType(0);
-        List<Teacher> classTeacherList = teacherService.selectTeacherByclassTeacher(classTescher);
+        List<NewTeacher> classTeacherList = newTeacherService.selectTeacherByclassTeacher(classTescher);
         map.put("classTeacher",classTeacherList);
         return "class/add_class";
     }
@@ -98,10 +96,7 @@ public class ClassController {
 
     @RequestMapping("classDetail")
     public String classDetail(Integer classId,Map map){
-        System.out.println("进入controlle");
-        System.out.println("0000000000000000000000"+classId);
         Class c = classService.selectClassById(classId);
-        System.out.println("陈江红我死了吗"+c+"=========================");
         map.put("class",c);
         return "class/classDetail";
     }
@@ -111,14 +106,14 @@ public class ClassController {
         List<Grade> gradeList = gradeService.selectGradeList();
         map.put("grades",gradeList);
         //查询type为1的班主任老师
-        Teacher teacher = new Teacher();
+        NewTeacher teacher = new NewTeacher();
         teacher.setType(1);
-        List<Teacher> teacherList = teacherService.selectTeacherById(teacher);
+        List<NewTeacher> teacherList = newTeacherService.selectTeacherById(teacher);
         map.put("teacher",teacherList);
         //查询type为2的教员老师
-        Teacher classTescher = new Teacher();
+        NewTeacher classTescher = new NewTeacher();
         classTescher.setType(0);
-        List<Teacher> classTeacherList = teacherService.selectTeacherByclassTeacher(classTescher);
+        List<NewTeacher> classTeacherList = newTeacherService.selectTeacherByclassTeacher(classTescher);
         map.put("classTeacher",classTeacherList);
         Class c = classService.selectClassById(classId);
         map.put("class",c);
@@ -169,13 +164,6 @@ public class ClassController {
     public List<Class> clesses(Integer gradeId){
         return classService.findAllByExample(gradeId);
     }
-
-
-
-
-
-    @Resource
-    private AnswerService answerService;
 
 
 

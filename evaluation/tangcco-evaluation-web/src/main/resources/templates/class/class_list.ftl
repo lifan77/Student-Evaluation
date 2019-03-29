@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
-    <link rel="stylesheet" href="css/Xq.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/Xq.css">
+    <script src="/js/jquery.min.js"></script>
 </head>
 <body>
 
@@ -73,7 +73,7 @@
         </div>
     </footer>
 </div>
-<script src="layui/layui.js"></script>
+<script src="/layui/layui.js"></script>
 <script>
     function deleteClass(classId) {
         var con=confirm("确认删除吗？");

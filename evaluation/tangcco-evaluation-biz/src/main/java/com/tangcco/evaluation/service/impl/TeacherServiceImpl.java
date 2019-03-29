@@ -13,17 +13,20 @@ public class TeacherServiceImpl implements TeacherService {
     @Autowired
     private TeacherMapper teacherMapper;
 
-    @Override
-    public List<Teacher> selectTeacherById(Teacher teacherID) {
 
-        return teacherMapper.select(teacherID);
-    }
 
-    @Override
-    public List<Teacher> selectTeacherByclassTeacher(Teacher classTeacherID) {
 
-        return teacherMapper.select(classTeacherID);
-    }
+    /*  @Override
+        public List<NewTeacher> selectTeacherById(NewTeacher teacherID) {
+
+            return teacherMapper.select(teacherID);
+        }
+
+        @Override
+        public List<Teacher> selectTeacherByclassTeacher(Teacher classTeacherID) {
+
+            return teacherMapper.select(classTeacherID);
+        }*/
     @Override
     public List<Teacher> findTeacher(Integer typeId,String name) {
 

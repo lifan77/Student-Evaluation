@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
-    <link rel="stylesheet" href="css/Xq.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/Xq.css">
 </head>
 <body>
 <div class="overall">
@@ -62,11 +62,11 @@
         </div>
     </footer>
 </div>
-<script src="layui/lay/modules/jquery-3.3.1.min.js"></script>
-<script src="layui/layui.js"></script>
-<script src="layui/layui.all.js"></script>
-<script src="layui/layui.js"></script>
-<script src="js/jquery.min.js"></script>
+<script src="/layui/lay/modules/jquery-3.3.1.min.js"></script>
+<script src="/layui/layui.js"></script>
+<script src="/layui/layui.all.js"></script>
+<script src="/layui/layui.js"></script>
+<script src="/js/jquery.min.js"></script>
 <script>
     //Demo
     layui.use('form', function(){

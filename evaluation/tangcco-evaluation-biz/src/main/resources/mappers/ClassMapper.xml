@@ -20,16 +20,15 @@
         <result column="gname" jdbcType="VARCHAR" property="name"/>
         <result column="duration" jdbcType="INTEGER" property="duration"/>
     </resultMap>
-    <resultMap id="teacherMap" type="com.tangcoo.evaluation.pojo.Teacher">
+    <resultMap id="teacherMap" type="com.tangcoo.evaluation.pojo.NewTeacher">
         <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
         <result column="t1name" jdbcType="VARCHAR" property="name"/>
         <result column="type" jdbcType="INTEGER" property="type"/>
     </resultMap>
-    <resultMap id="classTeacherMap" type="com.tangcoo.evaluation.pojo.Teacher">
+    <resultMap id="classTeacherMap" type="com.tangcoo.evaluation.pojo.NewTeacher">
         <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
         <result column="t2name" jdbcType="VARCHAR" property="name"/>
         <result column="type" jdbcType="INTEGER" property="type"/>
-        <result column="cname"  property="cname"/>
     </resultMap>
         <resultMap id="BaseResultMap" type="com.tangcoo.evaluation.pojo.Class">
             <id column="class_id" jdbcType="INTEGER" property="classId"/>
