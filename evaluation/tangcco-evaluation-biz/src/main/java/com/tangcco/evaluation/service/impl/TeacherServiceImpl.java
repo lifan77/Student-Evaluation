@@ -40,7 +40,6 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher findTeacherById(Integer teacher_id) {
-
         return teacherMapper.getTeacherById(teacher_id);
     }
 }

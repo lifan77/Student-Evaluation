@@ -16,7 +16,7 @@ function save() {
     $("input[name='option']").each(function (i,v) {
         obj.detail=v.value;
         obj.score=v.nextElementSibling.nextElementSibling.value;
-        options.push(obj);
+        options.push(JSON.parse(JSON.stringify(obj)));
     })
     $.ajax({
         type: "post",
@@ -26,7 +26,7 @@ function save() {
         success: function (data) {
             if (data.flag) {
                 alert(data.message);
-                window.location.href = "/question/questions"
+                //window.location.href = "/question/questions"
             } else {
                 alert(data.message);
             }

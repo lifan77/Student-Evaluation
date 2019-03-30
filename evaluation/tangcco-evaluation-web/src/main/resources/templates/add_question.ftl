@@ -9,6 +9,14 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/question.js"></script>
 
+    <script>
+        $(function () {
+            for (var i=0;i<4;i++){
+                add("");
+            }
+        })
+    </script>
+
 </head>
 <body>
 <div class="overall">

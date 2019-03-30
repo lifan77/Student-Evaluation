@@ -50,11 +50,7 @@
 
     </div>
 </div>
-<!-- //main -->
-<!-- copyright -->
-<div class="w3copyright-agile">
-    <p>&copy; Copyright &copy; 2019-2029<a href="#" target="_blank">W3layouts</a></p>
-</div>
+
 <!-- //copyright -->
 
 <script>

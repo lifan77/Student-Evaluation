@@ -64,10 +64,13 @@
             <table class="layui-table" style="word-break:break-all; word-wrap: break-word">
                 <thead>
                 <tr>
-                    <th>创建时间</th>
                     <th>标题</th>
                     <th>说明</th>
-                    <th>选项 / 分数</th>
+                    <th>选项一 / 分数</th>
+                    <th>选项二 / 分数</th>
+                    <th>选项三 / 分数</th>
+                    <th>选项四 / 分数</th>
+                    <th>选项五 / 分数</th>
                     <th>所属年级</th>
                     <th>评测对象</th>
                     <th>操作</th>
@@ -76,14 +79,11 @@
                 <tbody>
                     <#list questions as question>
                     <tr>
-                        <td>${question.createTime?datetime}</td>
                         <td>${question.title}</td>
-                        <td>${question.direction}</td>
-                        <td>
-                            <#list question.options?eval as option>
-                                <p>${option.detail}&nbsp;&nbsp;/&nbsp;&nbsp;${option.score} </p>
-                            </#list>
-                        </td>
+                        <td>${(question.direction=="")?string("/",question.direction)}</td>
+                        <#list question.options?eval as option>
+                             <td>${option.detail}&nbsp;&nbsp;/&nbsp;&nbsp;${option.score}</td>
+                        </#list>
                         <td>${question.gradeId}</td>
                         <td>${(question.teacherType==0)?string('教员','班主任')}</td>
                         <td><input type="button" onclick="location.href='/question/setPage?questionId=${question.questionId}'" class="layui-btn layui-btn-sm" value="修改"/>  <input type="button" onclick="del(${question.questionId})" class="layui-btn layui-btn-sm" value="删除"/></td>

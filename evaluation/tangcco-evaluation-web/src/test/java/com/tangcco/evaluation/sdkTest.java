@@ -40,6 +40,8 @@ public class sdkTest {
     private PaperService paperService;
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private TeacherService teacherService;
     @Test
     public void contextLoads() {
         User user=new User();
@@ -176,5 +178,9 @@ public class sdkTest {
     @Test
     public void testUpdate(){
         System.out.println(userService.userLand(1));
+    }
+    @Test
+    public void testQueryTeacher(){
+        System.out.println(teacherService.findTeacherById(1));
     }
 }

@@ -21,7 +21,6 @@ public interface UserMapper extends Mapper<User> {
     User login(@Param("user") User user);
 
     /**
-<<<<<<< HEAD
     * @Description: 根据userid修改他的状态
     * @Param: [userId]
     * @return: java.lang.Integer
