@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.tangcco.evaluation.service.*;
+import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.*;
 import com.tangcoo.evaluation.pojo.Class;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.*;
@@ -272,4 +274,20 @@ public class UserController {
         }
     }
 
+
+    @RequestMapping("/userList")
+    public String userList(Integer classId,String name,Map map){
+        PageDto<User> userPageDto = userService.selectUser(1,10,classId,name);
+        map.put("userList",userPageDto);
+        return "student/student_list";
+    }
+
+    @RequestMapping("ajaxUserList")
+    @ResponseBody
+    public Object ajaxUserList(Integer pageNo, Integer pageSize, Integer classId,String name){
+        System.out.println("进入controllr");
+        System.out.println(pageNo);
+        PageDto<User> userPageDto = userService.selectUser(pageNo,10,classId,name);
+        return userPageDto;
+    }
 }

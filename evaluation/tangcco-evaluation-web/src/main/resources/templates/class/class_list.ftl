@@ -62,6 +62,7 @@
                     <td>${class.totalStu}</td>
                     <td>
                         <a href="classDetail?classId=${class.classId}" class="caozuo">查看</a>
+                        <a href="/student/userList?classId=${class.classId}" class="caozuo">学员</a>
                         <a href="updateClass?classId=${class.classId}" class="caozuo">编辑</a>
                         <a href="#" onclick="deleteClass(${class.classId})" class="caozuo">删除</a>
                     </td>
@@ -118,6 +119,7 @@
                                             "                    <td>"+list[i].totalStu+"</td>\n" +
                                             "                    <td>" +
                                             "                   <n></n><a href=\"classDetail?classId="+list[i].classId+"\" class=\"caozuo\">查看</a>\n" +
+                                            "                        <a href=\"/student/userList?classId="+list[i].classId+"\" class=\"caozuo\">学员</a>\n" +
                                             "                        <a href=\"updateClass?classId="+list[i].classId+"\" class=\"caozuo\">编辑</a>\n" +
                                             "                        <a href=\"\" class=\"caozuo\">删除</a>\n" +
                                             "                    </td>\n" +
