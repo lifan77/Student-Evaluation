@@ -1,5 +1,6 @@
 package com.tangcco.evaluation.service;
 
+import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.User;
 
 import java.util.List;
@@ -21,4 +22,16 @@ public interface UserService {
     */
     User login(User user);
     Integer userLand(Integer userId);
+
+
+    /**
+     * @author : lifan
+     * @deprecated : 根据姓名、班级名称或班级类型分页查询学员信息
+     * @param pageNo
+     * @param pageSize
+     * @param classId
+     * @param name
+     * @return
+     */
+    PageDto<User> selectUser(Integer pageNo, Integer pageSize,Integer classId, String name);
 }

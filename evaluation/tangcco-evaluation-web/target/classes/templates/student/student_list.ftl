@@ -11,23 +11,13 @@
 
 <div class="overall">
     <header>
-        <div class="daohang">班级管理 / 班级列表</div>
-        <div class="title">班级列表</div>
+        <div class="daohang">学员管理 / 学员列表</div>
+        <div class="title">学员列表</div>
         <div class="content">
             <form action="/ClassList" method="get">
             <label class="ziti">
-                *班级编号:
-                <input class="layui-input x-input" type="text" name="className">
-            </label>
-            <label class="ziti">
-                *班级类型:
-                <select class="layui-input x-input" name="gradeId">
-                    <option value="">请选择班级类型</option>
-                    <#list grades as g>
-                    <option value="${g.gradeId}">${g.name}</option>
-                    </#list>
-                </select>
-                <#--<input class="layui-input x-input" type="text">-->
+                 *学员姓名:
+            <input class="layui-input x-input" type="text" name="className">
             </label>
             <button class="layui-btn layui-btn-primary x-btn">搜索</button>
             </form>
@@ -40,31 +30,31 @@
             </div>-->
             <table class="layui-table" style="word-break:break-all; word-wrap: break-word">
                 <thead>
-
                 <tr>
                     <th>序号</th>
-                    <th>班级类型</th>
-                    <th>班级编号</th>
-                    <th>教员</th>
-                    <th>班主任</th>
-                    <th>班级总人数</th>
+                    <th>姓名</th>
+                    <th>身份证号</th>
+                    <th>登录权限</th>
                     <th>操作</th>
                 </tr>
                 </thead>
                 <tbody id="body">
-                <#list classes.data as class>
+                <#list userList.data as user>
                 <tr>
-                    <td>${class.classId}</td>
-                    <td>${class.grade.name}</td>
-                    <td>${class.name}</td>
-                    <td>${class.classTeacher.name}</td>
-                    <td>${class.teacher.name}</td>
-                    <td>${class.totalStu}</td>
+                    <td>${user.classId}</td>
+                    <td>${user.name}</td>
+                    <td>${user.number}</td>
                     <td>
-                        <a href="classDetail?classId=${class.classId}" class="caozuo">查看</a>
-                        <a href="/student/userList?classId=${class.classId}" class="caozuo">学员</a>
-                        <a href="updateClass?classId=${class.classId}" class="caozuo">编辑</a>
-                        <a href="#" onclick="deleteClass(${class.classId})" class="caozuo">删除</a>
+                        <#if (user.land)?? && user.land=0>
+                            否
+                        <#elseif (user.land)?? && user.land=1>
+                            是
+                        </#if>
+                    </td>
+                    <td>
+                        <a href="#" class="caozuo">查看</a>
+                        <a href="#" class="caozuo">编辑</a>
+                        <a href="#" onclick="" class="caozuo">删除</a>
                     </td>
                 </tr>
                 </#list>
@@ -95,15 +85,14 @@
         var laypage = layui.laypage;
         laypage.render({
             elem: 'page'
-            ,count: '${classes.total}'
-            ,limit:'${classes.pageSize}'
-            ,curr:'${classes.pageNo}'
+            ,count: '${userList.total}'
+            ,limit:'${userList.pageSize}'
+            ,curr:'${userList.pageNo}'
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj){
-
                     $.ajax({
                         type:'post',
-                        url:"ajaxClassList",
+                        url:"ajaxUserList",
                         data:{pageNo:obj.curr,pageSize:obj.limit},dataType:'json',
                         success:function (result) {
                             var list = result.data;
@@ -112,15 +101,12 @@
                                 for(var i = 0;i<list.length;i++){
                                     html+="   <tr>\n" +
                                             "                    <td>"+list[i].classId+"</td>\n" +
-                                            "                    <td>"+list[i].grade.name+"</td>\n" +
                                             "                    <td>"+list[i].name+"</td>\n" +
-                                            "                    <td>"+list[i].classTeacher.name+"</td>\n" +
-                                            "                    <td>"+list[i].teacher.name+"</td>\n" +
-                                            "                    <td>"+list[i].totalStu+"</td>\n" +
+                                            "                    <td>"+list[i].number+"</td>\n" +
+                                            "                    <td>"+list[i].land+"</td>\n" +
                                             "                    <td>" +
-                                            "                   <n></n><a href=\"classDetail?classId="+list[i].classId+"\" class=\"caozuo\">查看</a>\n" +
-                                            "                        <a href=\"/student/userList?classId="+list[i].classId+"\" class=\"caozuo\">学员</a>\n" +
-                                            "                        <a href=\"updateClass?classId="+list[i].classId+"\" class=\"caozuo\">编辑</a>\n" +
+                                            "                   <n></n><a href=\"\" class=\"caozuo\">查看</a>\n" +
+                                            "                        <a href=\"\" class=\"caozuo\">编辑</a>\n" +
                                             "                        <a href=\"\" class=\"caozuo\">删除</a>\n" +
                                             "                    </td>\n" +
                                             "                </tr>";

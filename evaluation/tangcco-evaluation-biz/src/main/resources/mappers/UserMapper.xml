@@ -9,6 +9,46 @@
         <result column="number" jdbcType="VARCHAR" property="number"/>
         <result column="password" property="password" jdbcType="VARCHAR"></result>
     </resultMap>
+    <!--学生管理 start-->
+    <resultMap id="UserMap" type="com.tangcoo.evaluation.pojo.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="class_id" jdbcType="INTEGER" property="classId"/>
+        <result column="land" jdbcType="INTEGER" property="land"/>
+        <result column="number" jdbcType="VARCHAR" property="number"/>
+        <result column="password" property="password" jdbcType="VARCHAR"></result>
+        <association property="aClass" resultMap="aclassMap"></association>
+    </resultMap>
+    <resultMap id="aclassMap" type="com.tangcoo.evaluation.pojo.Class">
+        <id column="class_id" jdbcType="INTEGER" property="classId"/>
+        <result column="cname" jdbcType="VARCHAR" property="name"/>
+        <result column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+        <result column="class_teacher_id" jdbcType="INTEGER" property="classTeacherId"/>
+        <result column="grade_id" jdbcType="INTEGER" property="gradeId"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="total_stu" jdbcType="INTEGER" property="totalStu"/>
+        <result column="open_time" jdbcType="DATE" property="openTime"/>
+        <association property="grade" resultMap="gradeMap"></association>
+        <association property="teacher" resultMap="teacherMap"></association>
+        <association property="classTeacher" resultMap="classTeacherMap"></association>
+    </resultMap>
+    <resultMap id="gradeMap" type="com.tangcoo.evaluation.pojo.Grade">
+        <id column="grade_id" jdbcType="INTEGER" property="gradeId"/>
+        <result column="gname" jdbcType="VARCHAR" property="name"/>
+        <result column="duration" jdbcType="INTEGER" property="duration"/>
+    </resultMap>
+    <resultMap id="teacherMap" type="com.tangcoo.evaluation.pojo.NewTeacher">
+        <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+        <result column="t1name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+    </resultMap>
+    <resultMap id="classTeacherMap" type="com.tangcoo.evaluation.pojo.NewTeacher">
+        <id column="teacher_id" jdbcType="INTEGER" property="teacherId"/>
+        <result column="t2name" jdbcType="VARCHAR" property="name"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+    </resultMap>
+    <!--学生管理 end-->
+
     <select id="login" resultMap="BaseResultMap" >
         SELECT * FROM `user` WHERE class_id=#{user.classId} AND name=#{user.name}
     </select>
@@ -16,4 +56,43 @@
         UPDATE `user` SET land=0 WHERE user_id=#{userId}
     </update>
 
+    <select id="selectUser" resultMap="UserMap">
+        SELECT c.class_id,c.name AS cname,c.class_teacher_id,c.grade_id,c.open_time,c.status,
+        c.teacher_id,c.total_stu,g.duration,g.grade_id,g.name AS gname,t1.name AS t1name,t1.teacher_id,
+        t1.type,t2.name AS t2name,t2.teacher_id,t2.type,u.land,u.name,u.number,u.password,u.user_id
+        FROM class AS c,teacher AS t1,teacher AS t2 ,grade AS g,`user` AS u
+        WHERE c.teacher_id = t1.teacher_id
+        AND t2.teacher_id = c.class_teacher_id
+        AND g.grade_id=c.grade_id
+        AND c.class_id=u.class_id
+        AND c.status=0
+        <include refid="userWhere"/>
+        ORDER BY c.class_id DESC
+        LIMIT #{offset},#{pageSize}
+    </select>
+
+
+    <select id="getUserCount" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM class AS c,teacher AS t1,teacher AS t2 ,grade AS g,`user` AS u
+        WHERE c.teacher_id = t1.teacher_id
+        AND t2.teacher_id = c.class_teacher_id
+        AND g.grade_id=c.grade_id
+        AND c.class_id=u.class_id
+        AND c.status=0
+        <include refid="userWhere"/>
+    </select>
+
+    <sql id="userWhere">
+        <if test="classId!=null or name!=null">
+            <trim prefix="and (" prefixOverrides="and" suffix=")">
+                <if test="classId!=null and classId!=''">
+                    AND c.class_id = #{classId}
+                </if>
+                <if test="name!=null and name!=''">
+                    AND u.name LIKE concat('%', #{name},'%')
+                </if>
+            </trim>
+        </if>
+    </sql>
 </mapper>

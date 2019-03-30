@@ -58,20 +58,22 @@
                         <dd data-name="console">
                             <a href="/class/addClass" target="myFrame">新增班级</a>
                         </dd>
-                        <!--<dd data-name="console">
-                          <a href="法规目录管理.html" target="myFrame">法规目录管理</a>
-                        </dd>
-                        <dd data-name="console">
-                          <a href="新增目录.html" target="myFrame">新增目录</a>
-                        </dd>
-                        <dd data-name="console">
-                          <a href="条款列表.html" target="myFrame">条款列表</a>
-                        </dd>
-                        <dd data-name="console">
-                          <a href="新增条款.html" target="myFrame">新增条款</a>
-                        </dd> -->
                     </dl>
                 </li>
+               <#-- <li data-name="home" class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;" lay-tips="法规管理" lay-direction="2">
+                        <i class="layui-icon layui-icon-home"></i>
+                        <cite>学员管理</cite>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd data-name="console" class="layui-this">
+                            <a href="/student/StudentList" target="myFrame">学员信息</a>
+                        </dd>
+                        <dd data-name="console">
+                            <a href="/student/addStudent" target="myFrame">新增学员</a>
+                        </dd>
+                    </dl>
+                </li>-->
                 <li data-name="component" class="layui-nav-item">
                     <a href="javascript:;" lay-tips="用户管理" lay-direction="2">
                         <i class="layui-icon layui-icon-username"></i>

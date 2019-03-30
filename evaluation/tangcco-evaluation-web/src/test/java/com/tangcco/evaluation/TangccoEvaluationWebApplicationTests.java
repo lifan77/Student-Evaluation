@@ -5,7 +5,9 @@ import com.tangcco.evaluation.service.ClassService;
 import com.tangcco.evaluation.service.GradeService;
 import com.tangcco.evaluation.service.TeacherService;
 import com.tangcco.evaluation.service.UserService;
+import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.Class;
+import com.tangcoo.evaluation.pojo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +66,9 @@ public class TangccoEvaluationWebApplicationTests {
 
     @Test
     public void testDetail(){
-        Class c = classService.selectClassById(1);
-        System.out.println("chenjianghongwosilema:"+c);
+       PageDto<User> userPageDto = userService.selectUser(1,3,1,"");
+        for (User user : userPageDto.getData()){
+            System.out.println("user的数据是哈哈："+user+"============");
+        }
     }
 }
