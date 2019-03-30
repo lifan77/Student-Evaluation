@@ -196,5 +196,10 @@ public class ClassController {
         return classService.getTeacher2(tid);
     }
 
+    @RequestMapping("toindnex")
+    public String toindex(){
+        return "index";
+    }
+
 
 }

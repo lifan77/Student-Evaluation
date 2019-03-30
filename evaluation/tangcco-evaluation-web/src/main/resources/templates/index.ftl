@@ -6,7 +6,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/js/jquery-1.12.4.js"></script>
 
 
     <style>
@@ -28,10 +29,10 @@
 
         <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
             <li class="layui-nav-item" lay-unselect>
-                <a href="javascript:void(0)">账户设置</a>
+                欢迎：<#if userSession??>${userSession.roleId}</#if>
             </li>
             <li class="layui-nav-item" lay-unselect>
-                <a href="javascript:void(0)">退出登录</a>
+                <a href="javascript:void(0)" onclick="loginout()">退出登录</a>
             </li>
             <li class="layui-nav-item" lay-unselect>
                 <div>
@@ -158,12 +159,13 @@
 
         </iframe>
     </div>
+    <#if success??><input type="hidden" value="${success}" id="success"/></#if>
 </div>
 
 
-<script src="layui/lay/modules/jquery-3.3.1.min.js"></script>
-<script src="layui/layui.js"></script>
-<script src="layui/layui.all.js"></script>
+<script src="/layui/lay/modules/jquery-3.3.1.min.js"></script>
+<script src="/layui/layui.js"></script>
+<script src="/layui/layui.all.js"></script>
 
 
 <script>
@@ -189,6 +191,16 @@
         });
 
     })
+
+    $(function(){
+        if($("#success").val()!=undefined){
+            alert($("#success").val());
+        }
+    })
+
+    function loginout(){
+        window.location.href="../exit"
+    }
 </script>
 </body>
 </html>

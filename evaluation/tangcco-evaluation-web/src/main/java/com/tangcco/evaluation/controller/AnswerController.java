@@ -5,6 +5,7 @@ import com.tangcco.evaluation.service.AnswerService;
 import com.tangcco.evaluation.service.ClassService;
 import com.tangcoo.evaluation.pojo.Answer;
 import com.tangcoo.evaluation.pojo.Teacher;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 public class AnswerController {
 
     @Resource
@@ -24,6 +25,7 @@ public class AnswerController {
      * 2019-03-24
      * */
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getMouthCount")
     public Integer getMouthCount(){
         return answerService.queryCount();
@@ -34,6 +36,7 @@ public class AnswerController {
      * 2019-03-24
      * */
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getTeacherAndAVG")
     public List<Map> getTeacherAndAVG(@RequestParam("status")String status){
         return answerService.queryTeacherOrderList(status);
@@ -44,6 +47,7 @@ public class AnswerController {
      * 2019-03-24
      * */
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getAllTeacherAndAVG")
     public List<Map> getAllTeacherAndAVG(@RequestParam("status")String status){
         return answerService.queryAllTeacherOrderList(status);
@@ -54,6 +58,7 @@ public class AnswerController {
      * 2019-03-24
      * */
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getTeacherName")
     public String getTeacherName(@RequestParam("teacherId")String teacherId){
         return answerService.queryTeacherName(Integer.parseInt(teacherId));
@@ -64,6 +69,7 @@ public class AnswerController {
      * 2019-03-24
      * */
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getTeacherOpinion")
     public List<Map> getTeacherOpinion(@RequestParam("teacherId")String teacherId,@RequestParam("top")String Top){
         return answerService.queryTeacherOpinion(Integer.parseInt(teacherId),Integer.parseInt(Top));
@@ -74,6 +80,7 @@ public class AnswerController {
      * 2019-03-24
      * */
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getTeacherOpinionCount")
     public Integer getTeacherOpinionCount(@RequestParam("teacherId")String teacherId){
         return answerService.queryTeacherOpinionCount(Integer.parseInt(teacherId));
@@ -84,17 +91,20 @@ public class AnswerController {
      * 2019-03-24
      * */
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getTeacherAVGById")
     public List<Map> queryTeacherAVGById(@RequestParam("teacherId")String teacherId){
         return answerService.queryTeacherAVGById(Integer.parseInt(teacherId));
     }
 
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getJsonById")
     public Map<String,Integer> getJsonById(@RequestParam("teacherId")String teacherId){
         return answerService.queryJsonById(Integer.parseInt(teacherId));
     }
     @CrossOrigin
+    @ResponseBody
     @PostMapping("getPM")
     public Map<String,String> getPM(@RequestParam("teacherId")String teacherId){
         return answerService.queryPM(Integer.parseInt(teacherId));

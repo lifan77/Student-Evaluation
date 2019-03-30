@@ -6,4 +6,8 @@
         <result column="password" jdbcType="VARCHAR" property="password"/>
     </resultMap>
 
+
+    <select id="getRole" parameterType="String" resultMap="BaseResultMap">
+     select * from role where role_id=#{roleId}
+    </select>
 </mapper>
