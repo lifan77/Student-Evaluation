@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/layui/css/layui.css">
     <link rel="stylesheet" href="/css/Xq.css">
     <script src="/js/jquery.min.js"></script>
+    <script src="/layui/layui.all.js"></script>
     <script src="/js/question.js"></script>
 </head>
 <body>
@@ -23,11 +24,6 @@
                     <tr>
                         <td>标题</td>
                         <td><input type="text" name="title" class="layui-input x-input" value="${question.title}"></td>
-                    </tr>
-                    <tr>
-                        <td>说明</td>
-                        <td><input type="text" name="direction" class="layui-input x-input"
-                                   value="${question.direction}"></td>
                     </tr>
                     <tr>
                         <td>评测年级</td>
@@ -60,7 +56,8 @@
                 </table>
                 <table>
                     <tr>
-                        <td colspan="2" style="text-align: center;">
+                        <td colspan="3" style="text-align: center;">
+                            <input type="button" class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;"onclick="window.history.back(-1)" value="返回"/>
                             <input type="button" class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;"onclick="add()" value="添加选项"/>
                             <input type="button" class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;"onclick="save()" value="保存"/>
                         </td>

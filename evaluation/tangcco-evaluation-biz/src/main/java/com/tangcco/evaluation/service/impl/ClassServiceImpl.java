@@ -106,4 +106,17 @@ public class ClassServiceImpl implements ClassService {
         return teacherMapper.getTeacher2(tid);
     }
 
+    @Override
+    public List<Class> queryAllClassByGid(Integer gradeId) {
+        Class c =new Class();
+        c.setGradeId(gradeId);
+        List<Class> classList = classMapper.select(c);
+        return classList;
+    }
+
+    @Override
+    public List<Class> queryAll() {
+        return classMapper.selectAll();
+    }
+
 }

@@ -33,24 +33,32 @@ public class ClassController {
     @Resource
     private AnswerService answerService;
 
-    @RequestMapping("ClassList")
+    @RequestMapping("/ClassList")
     public String ClassList( String className, Integer gradeId,Map map){
         PageDto<Class> classPageDto = classService.selectClassByClassGrade(1,10,className,gradeId);
         List<Grade> gradeList = gradeService.selectGradeList();
         map.put("grades",gradeList);
         map.put("classes",classPageDto);
+        if(className==null){
+            className="";
+        }
+        map.put("className",className);
+        if(gradeId==null){
+            gradeId=0;
+        }
+        map.put("gradeId",gradeId);
         return "class/class_list";
     }
 
-    @RequestMapping("ajaxClassList")
+    @RequestMapping("/ajaxClassList")
     @ResponseBody
     public Object ajaxClassList(Integer pageNo, Integer pageSize, String className, Integer gradeId){
-        System.out.println(pageNo);
+        System.out.println("banjimingchneg:"+className+"grade"+gradeId+"===========");
         PageDto<Class> classPageDto = classService.selectClassByClassGrade(pageNo,10,className,gradeId);
         return classPageDto;
     }
 
-    @RequestMapping("addClass")
+    @RequestMapping("/addClass")
     public String addClass(Map map){
         List<Grade> gradeList = gradeService.selectGradeList();
         map.put("grades",gradeList);
@@ -67,7 +75,7 @@ public class ClassController {
         return "class/add_class";
     }
 
-    @RequestMapping("addClasses")
+    @RequestMapping("/addClasses")
     public String addClasses(Map map, String className, Integer classType, Integer teacherId,
                              Integer classTeacherId, Integer classNum, String classDate){
         Class c = new Class();
@@ -94,14 +102,14 @@ public class ClassController {
     }
 
 
-    @RequestMapping("classDetail")
+    @RequestMapping("/classDetail")
     public String classDetail(Integer classId,Map map){
         Class c = classService.selectClassById(classId);
         map.put("class",c);
         return "class/classDetail";
     }
 
-    @RequestMapping("updateClass")
+    @RequestMapping("/updateClass")
     public String updateClass(Map map,Integer classId){
         List<Grade> gradeList = gradeService.selectGradeList();
         map.put("grades",gradeList);
@@ -121,7 +129,7 @@ public class ClassController {
     }
 
 
-    @RequestMapping("updateClasses")
+    @RequestMapping("/updateClasses")
     public String updateClasses(Map map,Integer classId,String className,Integer classType,Integer teacherId,Integer classTeacherId,Integer classNum,Integer classStatus,String classDate){
         Class c = classService.selectClassById(classId);
         c.setName(className);
@@ -147,7 +155,7 @@ public class ClassController {
     }
 
 
-    @RequestMapping("deleteClass")
+    @RequestMapping("/deleteClass")
     @ResponseBody
     public Boolean deleteClass(Integer classId,Map map) {
         Class c = classService.selectClassById(classId);

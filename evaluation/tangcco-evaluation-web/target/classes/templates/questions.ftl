@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
     <link rel="stylesheet" href="/css/Xq.css">
+    <script src="/layui/layui.all.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script>
         function del(questionId) {
@@ -14,14 +15,11 @@
                 dataType: "json",
                 success: function (data) {
                     if (data.flag) {
-                        alert(data.message);
-                        window.location.reload();
-                    } else {
-                        alert(data.message);
+                        layer.msg(data.message,{icon : 1,time:1500,end: function () {location.reload();}});
                     }
                 },
                 error: function () {
-                    alert("系统异常");
+                    layer.msg('系统异常!',{time:1500});
                 }
             });
         }
@@ -38,14 +36,12 @@
                 <label class="ziti">
                     所属年级:
                     <select name="gradeId" class="layui-select x-select">
-                        <option value="" ${(gradeId==-1)?string("selected","")}>全部</option>
                         <#list grades as grade>
                             <option value="${grade.gradeId}" ${(gradeId==grade.gradeId)?string("selected","")}>${grade.name}</option>
                         </#list>
                     </select>
                     评测对象:
                     <select name="teacherType" class="layui-select x-select">
-                        <option value="" ${(teacherType==-1)?string("selected","")}>全部</option>
                         <option value="0" ${(teacherType==0)?string("selected","")}>教员</option>
                         <option value="1" ${(teacherType==1)?string("selected","")}>班主任</option>
                     </select>
@@ -65,12 +61,15 @@
                 <thead>
                 <tr>
                     <th>标题</th>
-                    <th>说明</th>
                     <th>选项一 / 分数</th>
                     <th>选项二 / 分数</th>
                     <th>选项三 / 分数</th>
                     <th>选项四 / 分数</th>
-                    <th>选项五 / 分数</th>
+                    <#if questions?size!=0>
+                        <#if questions[0].getTeacherType()==0>
+                            <th>选项五 / 分数</th>
+                        </#if>
+                    </#if>
                     <th>所属年级</th>
                     <th>评测对象</th>
                     <th>操作</th>
@@ -80,13 +79,22 @@
                     <#list questions as question>
                     <tr>
                         <td>${question.title}</td>
-                        <td>${(question.direction=="")?string("/",question.direction)}</td>
                         <#list question.options?eval as option>
-                             <td>${option.detail}&nbsp;&nbsp;/&nbsp;&nbsp;${option.score}</td>
+                            <td>${option.detail}&nbsp;&nbsp;/&nbsp;&nbsp;${option.score}</td>
                         </#list>
+                        <#if questions[0].getTeacherType()==0>
+                            <#assign number=5 />
+                        <#else>
+                            <#assign number=4 />
+                        </#if>
+                        <#if question.options?eval?size % number != 0>
+                            <#list 1..(number-question.options?eval?size) as num>
+                                <td>/</td>
+                            </#list>
+                        </#if>
                         <td>${question.gradeId}</td>
-                        <td>${(question.teacherType==0)?string('教员','班主任')}</td>
-                        <td><input type="button" onclick="location.href='/question/setPage?questionId=${question.questionId}'" class="layui-btn layui-btn-sm" value="修改"/>  <input type="button" onclick="del(${question.questionId})" class="layui-btn layui-btn-sm" value="删除"/></td>
+                        <td style="width: 50px;">${(question.teacherType==0)?string('教员','班主任')}</td>
+                        <td style="width: 120px"><input type="button" onclick="location.href='/question/setPage?questionId=${question.questionId}'" class="layui-btn layui-btn-sm" value="修改"/>  <input type="button" onclick="del(${question.questionId})" class="layui-btn layui-btn-sm" value="删除"/></td>
                     </tr>
                     </#list>
                 </tbody>

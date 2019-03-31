@@ -49,6 +49,8 @@ public class UserController {
     @Autowired
     private AnswerService answerService;
     @Autowired
+    private GradeService gradeService;
+
     private TeacherService teacherService;
     @RequestMapping("")
     public String index(Model model){
@@ -275,18 +277,78 @@ public class UserController {
 
 
     @RequestMapping("/userList")
-    public String userList(Integer classId,String name,Map map){
-        PageDto<User> userPageDto = userService.selectUser(1,10,classId,name);
+    public String userList(Integer classId,String stuName,Map map){
+        System.out.println(classId+"....."+stuName+"***********************");
+        PageDto<User> userPageDto = userService.selectUser(1,10,classId,stuName);
         map.put("userList",userPageDto);
+        map.put("cId",classId);
+        if(stuName==null){
+            stuName="";
+        }
+        map.put("stuName",stuName);
         return "student/student_list";
     }
 
     @RequestMapping("ajaxUserList")
     @ResponseBody
-    public Object ajaxUserList(Integer pageNo, Integer pageSize, Integer classId,String name){
-        System.out.println("进入controllr");
-        System.out.println(pageNo);
-        PageDto<User> userPageDto = userService.selectUser(pageNo,10,classId,name);
+    public Object ajaxUserList(Integer pageNo, Integer pageSize, Integer classId,String stuName){
+        System.out.println(stuName+"mingzi ============");
+        PageDto<User> userPageDto = userService.selectUser(pageNo,10,classId,stuName);
         return userPageDto;
+    }
+
+    @RequestMapping("addUser")
+    public String addUser(Integer classId,Map map){
+        System.out.println(classId+"获取的班级id");
+        map.put("classId",classId);
+        return "student/add_student";
+    }
+
+    @RequestMapping("addUsers")
+    public String addUsers(Integer cid,String stuName,String number,Integer login){
+        String shenfenzheng=number;
+        String pwd = shenfenzheng.substring(shenfenzheng.length() - 6);
+        System.out.println(pwd);
+        User user = new User();
+        user.setClassId(cid);
+        user.setName(stuName);
+        user.setNumber(number);
+        user.setLand(login);
+        user.setPassword(pwd);
+        Integer count = userService.addUser(user);
+        if(count>0){
+            return "redirect:/student/userList?classId="+cid;
+        }else{
+            return "student/add_student";
+        }
+    }
+
+    @RequestMapping("updateStu")
+    public String updateStu(Map map,Integer userId){
+        List<Class> classList = classService.queryAll();
+        map.put("classes",classList);
+        User user = userService.selectByid(userId);
+        map.put("user",user);
+        return "student/update_student";
+    }
+
+    @RequestMapping("updateStus")
+    public String updateStus(Integer stuId,String stuName,Integer stuClassId,String stuNum,Integer login,String stuPwd){
+        System.out.println(stuId);
+        User user = new User();
+        user.setUserId(stuId);
+        user.setName(stuName);
+        user.setClassId(stuClassId);
+        user.setLand(login);
+        user.setNumber(stuNum);
+        user.setPassword(stuPwd);
+        int count = userService.updateUser(user);
+        if(count>0){
+            System.out.println("修改成功");
+           return "redirect:/student/userList?classId="+user.getClassId() ;
+        }else{
+            return "student/update_student";
+        }
+
     }
 }

@@ -14,17 +14,21 @@
         <div class="daohang">班级管理 / 班级列表</div>
         <div class="title">班级列表</div>
         <div class="content">
-            <form action="/ClassList" method="get">
+            <form action="/class/ClassList" method="get">
             <label class="ziti">
                 *班级编号:
-                <input class="layui-input x-input" type="text" name="className">
+                <input class="layui-input x-input" type="text" value="${className}" id="className" name="className">
             </label>
             <label class="ziti">
                 *班级类型:
-                <select class="layui-input x-input" name="gradeId">
+                <select class="layui-input x-input" name="gradeId" id="gradeId">
                     <option value="">请选择班级类型</option>
                     <#list grades as g>
-                    <option value="${g.gradeId}">${g.name}</option>
+                        <option value="${g.gradeId}"
+                            <#if g.gradeId==gradeId>
+                                selected
+                            </#if>
+                        >${g.name}</option>
                     </#list>
                 </select>
                 <#--<input class="layui-input x-input" type="text">-->
@@ -61,9 +65,9 @@
                     <td>${class.teacher.name}</td>
                     <td>${class.totalStu}</td>
                     <td>
-                        <a href="classDetail?classId=${class.classId}" class="caozuo">查看</a>
+                        <a href="/student/classDetail?classId=${class.classId}" class="caozuo">查看</a>
                         <a href="/student/userList?classId=${class.classId}" class="caozuo">学员</a>
-                        <a href="updateClass?classId=${class.classId}" class="caozuo">编辑</a>
+                        <a href="/student/updateClass?classId=${class.classId}" class="caozuo">编辑</a>
                         <a href="#" onclick="deleteClass(${class.classId})" class="caozuo">删除</a>
                     </td>
                 </tr>
@@ -100,11 +104,12 @@
             ,curr:'${classes.pageNo}'
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj){
-
+            var className=document.getElementById("className").value;
+            var gradeId=document.getElementById("gradeId").value;
                     $.ajax({
                         type:'post',
-                        url:"ajaxClassList",
-                        data:{pageNo:obj.curr,pageSize:obj.limit},dataType:'json',
+                        url:"/class/ajaxClassList",
+                        data:{pageNo:obj.curr,pageSize:obj.limit,className:className,gradeId:gradeId},dataType:'json',
                         success:function (result) {
                             var list = result.data;
                             if(list.length>0){
@@ -118,9 +123,9 @@
                                             "                    <td>"+list[i].teacher.name+"</td>\n" +
                                             "                    <td>"+list[i].totalStu+"</td>\n" +
                                             "                    <td>" +
-                                            "                   <n></n><a href=\"classDetail?classId="+list[i].classId+"\" class=\"caozuo\">查看</a>\n" +
+                                            "                   <n></n><a href=\"/class/classDetail?classId="+list[i].classId+"\" class=\"caozuo\">查看</a>\n" +
                                             "                        <a href=\"/student/userList?classId="+list[i].classId+"\" class=\"caozuo\">学员</a>\n" +
-                                            "                        <a href=\"updateClass?classId="+list[i].classId+"\" class=\"caozuo\">编辑</a>\n" +
+                                            "                        <a href=\"/class/updateClass?classId="+list[i].classId+"\" class=\"caozuo\">编辑</a>\n" +
                                             "                        <a href=\"\" class=\"caozuo\">删除</a>\n" +
                                             "                    </td>\n" +
                                             "                </tr>";
