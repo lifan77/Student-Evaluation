@@ -25,14 +25,13 @@ function save() {
         data: $("#saveForm").serialize()+"&options="+JSON.stringify(options),
         success: function (data) {
             if (data.flag) {
-                alert(data.message);
-                //window.location.href = "/question/questions"
+                layer.msg('保存成功!',{icon : 1,time:1500,end: function () {window.location.href = "/question/questions"}});
             } else {
                 alert(data.message);
             }
         },
         error: function () {
-            alert("系统异常");
+            layer.msg('系统异常!',{time:1500});
         }
     });
 }

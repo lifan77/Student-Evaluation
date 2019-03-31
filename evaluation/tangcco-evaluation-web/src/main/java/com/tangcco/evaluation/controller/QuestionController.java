@@ -25,8 +25,8 @@ public class QuestionController {
 
     @RequestMapping("/questions")
     public String findAllByExample(Model model,Integer gradeId, Integer teacherType){
-        gradeId=gradeId==null?-1:gradeId;
-        teacherType=teacherType==null?-1:teacherType;
+        gradeId=gradeId==null?1:gradeId;
+        teacherType=teacherType==null?0:teacherType;
         model.addAttribute("questions",questionService.findAllByExample(gradeId,teacherType));
         model.addAttribute("grades",gradeService.findAll());
         model.addAttribute("gradeId",gradeId);
