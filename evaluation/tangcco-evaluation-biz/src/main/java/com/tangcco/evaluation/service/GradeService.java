@@ -12,4 +12,5 @@ public interface GradeService {
      */
     List<Grade> selectGradeList();
     List<Grade> findAll();
+
 }

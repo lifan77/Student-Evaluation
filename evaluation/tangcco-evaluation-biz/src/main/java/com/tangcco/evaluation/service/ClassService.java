@@ -73,4 +73,18 @@ public interface ClassService {
 
     Teacher getTeacher2(Integer tid);
 
+    /**
+     * @author : lifan
+     * @deprecated : 根据年级查询班级信息
+     * @return
+     */
+    List<Class> queryAllClassByGid(Integer gradeId);
+
+    /**
+     * @author:lifan
+     * @deprecated : 查询所有班级
+     * @return
+     */
+    List<Class> queryAll();
+
 }

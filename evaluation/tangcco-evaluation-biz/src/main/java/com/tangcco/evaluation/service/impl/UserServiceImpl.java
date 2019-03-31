@@ -24,7 +24,6 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<User> queryAll() {
-        System.out.println("-------------------------------------------------------------------------");
         return userMapper.selectAll();
     }
 
@@ -59,14 +58,29 @@ public class UserServiceImpl implements UserService {
         PageDto<User> userPageDto = new PageDto<>();
         userPageDto.setTotal(userCount);
         userPageDto.setPageNo(pageNo);
-        userPageDto.setPages(pageSize);
+        userPageDto.setPageSize(pageSize);
         userPageDto.setData(userList);
         int pages=(int)(userCount/pageSize+(userCount%pageSize>0?1:0));
         userPageDto.setPages(pages);
         return userPageDto;
     }
 
+    @Override
+    public Integer addUser(User user) {
+        return userMapper.insertSelective(user);
+    }
 
+    @Override
+    public Integer updateUser(User user) {
+        return userMapper.updateStu(user);
 
+    }
+
+    @Override
+    public User selectByid(Integer id) {
+        User user = new User();
+        user.setUserId(id);
+        return userMapper.selectOne(user);
+    }
 
 }

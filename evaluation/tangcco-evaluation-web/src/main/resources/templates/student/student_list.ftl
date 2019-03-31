@@ -14,20 +14,23 @@
         <div class="daohang">学员管理 / 学员列表</div>
         <div class="title">学员列表</div>
         <div class="content">
-            <form action="/ClassList" method="get">
+            <form action="/student/userList" method="get">
             <label class="ziti">
                  *学员姓名:
-            <input class="layui-input x-input" type="text" name="className">
+            <input class="layui-input x-input" type="text" id="stuName" value="${stuName}" name="stuName">
+            <input type="hidden" value="${cId}" id="classId" name="classId">
             </label>
-            <button class="layui-btn layui-btn-primary x-btn">搜索</button>
+                <button class="layui-btn layui-btn-primary x-btn">搜索</button>
             </form>
         </div>
     </header>
+
     <footer>
         <div>
-            <#--<div class="layui-input-block">
-                <button class="layui-btn layui-btn-normal" style="float: right;">新增法规</button>
-            </div>-->
+            <div class="layui-input-block">
+               <#-- <a href="/student/addUser"><button class="layui-btn layui-btn-normal" style="float: right;">新增学生</button></a>-->
+                <button class="layui-btn layui-btn-normal" style="float: right;" onclick="addStu(${cId})">新增学员</button>
+            </div>
             <table class="layui-table" style="word-break:break-all; word-wrap: break-word">
                 <thead>
                 <tr>
@@ -41,7 +44,7 @@
                 <tbody id="body">
                 <#list userList.data as user>
                 <tr>
-                    <td>${user.classId}</td>
+                    <td>${user.userId}</td>
                     <td>${user.name}</td>
                     <td>${user.number}</td>
                     <td>
@@ -52,8 +55,8 @@
                         </#if>
                     </td>
                     <td>
-                        <a href="#" class="caozuo">查看</a>
-                        <a href="#" class="caozuo">编辑</a>
+                        
+                        <a href="/student/updateStu?userId=${user.userId}" class="caozuo">编辑</a>
                         <a href="#" onclick="" class="caozuo">删除</a>
                     </td>
                 </tr>
@@ -66,6 +69,9 @@
 </div>
 <script src="/layui/layui.js"></script>
 <script>
+    function addStu(cId) {
+        window.location.href="/student/addUser?classId="+cId;
+    }
     function deleteClass(classId) {
         var con=confirm("确认删除吗？");
         if (con){
@@ -90,20 +96,29 @@
             ,curr:'${userList.pageNo}'
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj){
+                var cid=document.getElementById("classId").value;
+                var name=document.getElementById("stuName").value;
                     $.ajax({
                         type:'post',
                         url:"ajaxUserList",
-                        data:{pageNo:obj.curr,pageSize:obj.limit},dataType:'json',
-                        success:function (result) {
+                        data:{pageNo:obj.curr,pageSize:obj.limit,classId:cid,stuName:name},dataType:'json',
+                        success:function (result)
                             var list = result.data;
                             if(list.length>0){
                                 var html ="";
                                 for(var i = 0;i<list.length;i++){
+                                    var type=list[i].type;
+                                    var zhentype="";
+                                    if (type==0){
+                                       zhentype="否";
+                                    } else {
+                                        zhentype="是";
+                                    }
                                     html+="   <tr>\n" +
-                                            "                    <td>"+list[i].classId+"</td>\n" +
+                                            "                    <td>"+list[i].userId+"</td>\n" +
                                             "                    <td>"+list[i].name+"</td>\n" +
                                             "                    <td>"+list[i].number+"</td>\n" +
-                                            "                    <td>"+list[i].land+"</td>\n" +
+                                            "                    <td>"+zhentype+"</td>\n" +
                                             "                    <td>" +
                                             "                   <n></n><a href=\"\" class=\"caozuo\">查看</a>\n" +
                                             "                        <a href=\"\" class=\"caozuo\">编辑</a>\n" +

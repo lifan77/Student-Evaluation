@@ -52,4 +52,12 @@ public interface UserMapper extends Mapper<User> {
      */
     Integer getUserCount(@Param("classId") Integer classId,
                          @Param("name") String name);
+
+    /**
+     * @author : lifan
+     * @deprecated : 修改学生信息
+     * @param user
+     * @return
+     */
+    Integer updateStu(User user);
 }

@@ -34,4 +34,28 @@ public interface UserService {
      * @return
      */
     PageDto<User> selectUser(Integer pageNo, Integer pageSize,Integer classId, String name);
+
+    /**
+     * @author : lifan
+     * @deprecated  :  新增学生
+     * @param user
+     * @return
+     */
+    Integer addUser(User user);
+
+    /**
+     * @author:lifan
+     * @deprecated : 修改学生信息
+     * @param user
+     * @return
+     */
+    Integer updateUser(User user);
+
+    /**
+     * @author: lifan
+     * @deprecated : 根基id查询
+     * @param id
+     * @return
+     */
+    User selectByid(Integer id);
 }

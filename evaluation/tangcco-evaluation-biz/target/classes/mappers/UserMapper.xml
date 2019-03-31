@@ -86,7 +86,7 @@
     <sql id="userWhere">
         <if test="classId!=null or name!=null">
             <trim prefix="and (" prefixOverrides="and" suffix=")">
-                <if test="classId!=null and classId!=''">
+                <if test="classId!=null and classId!=0">
                     AND c.class_id = #{classId}
                 </if>
                 <if test="name!=null and name!=''">
@@ -95,4 +95,10 @@
             </trim>
         </if>
     </sql>
+
+    <update id="updateStu">
+          UPDATE evaluate.user
+	        SET `name` = #{name},class_id =#{classId},land = ${land},number =#{number},`password` =#{password}
+            WHERE user_id =#{userId}
+    </update>
 </mapper>

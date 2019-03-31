@@ -7,12 +7,13 @@ import com.tangcco.evaluation.service.TeacherService;
 import com.tangcco.evaluation.service.UserService;
 import com.tangcoo.evaluation.dto.PageDto;
 import com.tangcoo.evaluation.pojo.Class;
-import com.tangcoo.evaluation.pojo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -57,18 +58,20 @@ public class TangccoEvaluationWebApplicationTests {
     public void classTest(){
         //测试班级列表
 
-        Class c = new Class();
-//        c.setClassId(12);
-//        c.setStatus(1);
-        Class classs= classService.selectClassById(1);
-        System.out.println(classs+"+++++++++++++++++++");
+     PageDto<Class> classPageDto = classService.selectClassByClassGrade(1,5,"",null);
+        System.out.println(classPageDto.getData());
     }
 
     @Test
     public void testDetail(){
-       PageDto<User> userPageDto = userService.selectUser(1,3,1,"");
-        for (User user : userPageDto.getData()){
-            System.out.println("user的数据是哈哈："+user+"============");
+     /*  PageDto<User> userPageDto = userService.selectUser(1,2,3,"李");
+        System.out.println("123434567"+userPageDto.getData().size());
+       for (User user : userPageDto.getData()){
+            System.out.println("user的数据是哈哈："+user+"============"+"总数："+userPageDto.getTotal()+"每页的数量"+userPageDto.getPageSize());
         }
+        //System.out.println(userPageDto.getTotal()+"pageSize"+userPageDto.getPageSize());*/
+
+     List <Class> classList = classService.queryAllClassByGid(1);
+        System.out.println(classList+"ssssssssssss");
     }
 }

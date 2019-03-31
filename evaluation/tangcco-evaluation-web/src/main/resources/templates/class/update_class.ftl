@@ -97,7 +97,7 @@
                 </tr>
                 <tr>
                     <td>*开班时间:</td>
-                    <td><input class="layui-input x-input" value="${class.openTime?string('yyyy-MM-dd')}"  type="text" id="classDate" name="classDate"></td>
+                    <td><input class="layui-input x-input" value="${class.openTime?string('yyyy-MM-dd')}"  type="date" id="classDate" name="classDate"></td>
                 </tr>
                 <tr>
                     <td> <input class="layui-btn-primary x-btn-sm" type="button" onclick="javascript:history.go(-1)" value="返回"></td>
