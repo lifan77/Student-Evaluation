@@ -75,7 +75,7 @@ public class UserController {
         return "/admin-login/index";
     }
 
-    @RequestMapping(value = "studentLogin",method = RequestMethod.POST)
+    @RequestMapping(value = "studentLogin")
     public String  loginStudent(String password, String name, Integer classId, RedirectAttributes redirectAttributes,Model model){
         User user=new User();
         user.setClassId(classId);
@@ -123,6 +123,7 @@ public class UserController {
     @RequestMapping("exam1")
     public String exam(Model model) {  //Integer gradeId,Integer teacherType 这两个参数一定要加的
         Teacher teacher=teacherService.findTeacherById(teacherId);
+        System.out.println(teacher);
         Question t = new Question();
         t.setGradeId(this.gradeId);
         t.setTeacherType(teacher.getType());
@@ -131,6 +132,7 @@ public class UserController {
         /*List<String> key=new ArrayList<>();
         List<String> value=new ArrayList<>();*/
         Map<String, Map> map = new HashMap<>();
+        System.out.println(t);
         for (int i = 0; i < q.size(); i++) {
             String xuhao = q.get(i).getTitle();
             System.out.println(q.get(i).getOptions());//得到array
@@ -158,7 +160,7 @@ public class UserController {
         model.addAttribute("teacher",teacher);
         //这是往前面传的结果
         //{1={这是第二个选项=2, 这是第一个选项=1, 这是第三个选项=3}, 2={这是第二个选项=2, 这是第一个选项=1, 这是第三个选项=3}}
-        return "/ans/demo";
+        return "/StudentMT/index";
     }
     @RequestMapping("exam2")
     public String exam2(Model model) {  //Integer gradeId,Integer teacherType 这两个参数一定要加的
@@ -215,9 +217,6 @@ public class UserController {
         answer.setStatus(0);
         answer.setTeacherId(this.teacherId);
         answer.setClassId(this.classId);
-
-
-
         Integer garderId=this.gradeId;
         List<Paper> p=paperService.findJson();
         for (int i = 0; i <p.size() ; i++) {

@@ -130,9 +130,9 @@
     <#list map?keys as key>
       <#--<option value="${key}">${map[key]}</option>-->
       <p>${key_index+1}.${key}</p>
-      <div id="rb-${key_index+1}" class="rb">
+      <div id="rb-${key_index+1}" class="rb"><#--选项区域-->
             <#list map[key]?keys as yy>
-                  <div class="rb-tab " data-value=${map[key][yy]}>
+                  <div class="rb-tab " data-value=${map[key][yy]}><#--选项按钮-->
                     <div class="rb-spot">
                     <span class="rb-txt">${map[key][yy]}</span>
                   </div>
