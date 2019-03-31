@@ -155,7 +155,7 @@
 
 
     <div class="layui-body" style="overflow: hidden;">
-        <iframe name="myFrame" src="法规列表.html" frameborder="0" style="width: 100%;height: 100%;">
+        <iframe name="myFrame" src="/class/ClassList" frameborder="0" style="width: 100%;height: 100%;">
 
         </iframe>
     </div>

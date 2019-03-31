@@ -26,7 +26,7 @@
 
     <select id="getTeacherById" resultType="com.tangcoo.evaluation.pojo.Teacher" parameterType="java.lang.Integer">
 
-        SELECT 	teacher_id, `name`, `type` FROM evaluate.teacher where  teacher_id=#{teacherId}
+        SELECT 	teacher_id, `name`, `type` FROM evaluate.teacher where  teacher_id=#{teacher_id}
 
     </select>
     <delete id="deleteTeacherById" parameterType="java.lang.Integer">

@@ -51,6 +51,7 @@ public class UserController {
     @Autowired
     private GradeService gradeService;
 
+    private TeacherService teacherService;
     @RequestMapping("")
     public String index(Model model){
         Map<String,String> map=new HashMap<>();
@@ -123,9 +124,10 @@ public class UserController {
     }
     @RequestMapping("exam1")
     public String exam(Model model) {  //Integer gradeId,Integer teacherType 这两个参数一定要加的
+        Teacher teacher=teacherService.findTeacherById(teacherId);
         Question t = new Question();
         t.setGradeId(this.gradeId);
-        t.setTeacherType(1);
+        t.setTeacherType(teacher.getType());
         List<Question> q = questionService.selectQuestion(t);//根据年级，教员开始分配题目
         //[Question(questionId=2, title=测试2, direction=很棒, options=[{"detail":"这是第一个选项","score":"1"},{"detail":"这是第二个选项","score":"2"},{"detail":"这是第三个选项","score":"3"}], gradeId=1, createTime=Sat Mar 23 14:32:31 CST 2019, updateTime=Sat Mar 23 19:32:36 CST 2019, teacherType=2)]
         /*List<String> key=new ArrayList<>();
@@ -155,6 +157,7 @@ public class UserController {
         }
         System.out.println(map);
         model.addAttribute("map",map);
+        model.addAttribute("teacher",teacher);
         //这是往前面传的结果
         //{1={这是第二个选项=2, 这是第一个选项=1, 这是第三个选项=3}, 2={这是第二个选项=2, 这是第一个选项=1, 这是第三个选项=3}}
         return "/ans/demo";
@@ -162,9 +165,10 @@ public class UserController {
     @RequestMapping("exam2")
     public String exam2(Model model) {  //Integer gradeId,Integer teacherType 这两个参数一定要加的
         System.out.println("进来没有exam2");
+        Teacher teacher2=teacherService.findTeacherById(classTeacherId);
         Question t = new Question();
         t.setGradeId(this.gradeId);
-        t.setTeacherType(0);
+        t.setTeacherType(teacher2.getType());
         List<Question> q = questionService.selectQuestion(t);//根据年级，教员开始分配题目
         //[Question(questionId=2, title=测试2, direction=很棒, options=[{"detail":"这是第一个选项","score":"1"},{"detail":"这是第二个选项","score":"2"},{"detail":"这是第三个选项","score":"3"}], gradeId=1, createTime=Sat Mar 23 14:32:31 CST 2019, updateTime=Sat Mar 23 19:32:36 CST 2019, teacherType=2)]
         /*List<String> key=new ArrayList<>();
@@ -191,11 +195,13 @@ public class UserController {
                 //System.out.println(job.get("name") + "=");
             }
             map.put(xuhao, option);
+
         }
         System.out.println(map);
         model.addAttribute("map",map);
         //这是往前面传的结果
         //{1={这是第二个选项=2, 这是第一个选项=1, 这是第三个选项=3}, 2={这是第二个选项=2, 这是第一个选项=1, 这是第三个选项=3}}
+        model.addAttribute("teacher2",teacher2);
         return "/ans/demo2";
     }
 

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/layui/css/layui.css">
     <link rel="stylesheet" href="/css/Xq.css">
     <script src="/js/jquery.min.js"></script>
+    <script src="/layui/layui.all.js"></script>
     <script>
         function chk() {
             $("#classes").html("");
@@ -45,14 +46,11 @@
                 data: $("form").serialize() + "&classes=" + JSON.stringify(classes),
                 success: function (data) {
                     if (data.flag) {
-                        alert(data.message);
-                        window.location.href = "/paper/papers";
-                    } else {
-                        alert(data.message);
+                        layer.msg('保存成功!',{icon : 1,time:1500,end: function () {window.location.href = "/paper/papers"}});
                     }
                 },
                 error: function () {
-                    alert("系统异常");
+                    layer.msg('系统异常!',{time:1500});
                 }
             });
         }
@@ -115,6 +113,8 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: center;">
+                            <input type="button" onclick="window.history.back(-1)" class="layui-btn layui-btn-primary x-btn"
+                                   style="margin-top: 20px;" value="返回">
                             <input type="button" onclick="add()" class="layui-btn layui-btn-primary x-btn"
                                    style="margin-top: 20px;" value="保存">
                         </td>
